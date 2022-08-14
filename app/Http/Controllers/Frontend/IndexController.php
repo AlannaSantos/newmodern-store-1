@@ -36,15 +36,15 @@ class IndexController extends Controller
          * DE FUGIR DO TRABALHO ASSALARIADO...
          * 
          **/
-        $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+      //  $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
 
-        $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
+      //  $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
 
-        $hotdeals = Product::where('product_hot_deals', 1)->where('product_discount_price', '!=', null)->orderBy('id', 'DESC')->limit(6)->get();
+      //  $hotdeals = Product::where('product_hot_deals', 1)->where('product_discount_price', '!=', null)->orderBy('id', 'DESC')->limit(6)->get();
 
-        $specialdeals = Product::where('product_special_deals', 1)->orderBy('id', 'DESC')->limit(3)->get();
+      //  $specialdeals = Product::where('product_special_deals', 1)->orderBy('id', 'DESC')->limit(3)->get();
 
-        $specialoffers = Product::where('product_special_offer', 1)->orderBy('id', 'DESC')->limit(4)->get();
+      //  $specialoffers = Product::where('product_special_offer', 1)->orderBy('id', 'DESC')->limit(4)->get();
 
 
         /**
@@ -77,11 +77,11 @@ class IndexController extends Controller
              * DE FUGIR DO TRABALHO ASSALARIADO...
              * 
              **/
-            'sliders',
-            'featured',
-            'hotdeals',
-            'specialdeals',
-            'specialoffers',
+            // 'sliders',
+            // 'featured',
+            // 'hotdeals',
+            // 'specialdeals',
+            // 'specialoffers',
 
         /**
          * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
