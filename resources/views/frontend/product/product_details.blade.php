@@ -192,8 +192,8 @@
                                                     <span>*</span>
                                                 </label>
                                                 <select class="form-control unicase-form-control selectpicker"
-                                                    id="color">
-                                                    <option selected="" disabled=""> Escolher Cor </option>
+                                                    id="color" >
+                                                    <option selected="" disabled="" required=""> Escolher Cor </option>
 
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
@@ -222,8 +222,8 @@
                                                     Tamanho<span></span></label>
 
                                                 <select class="form-control unicase-form-control selectpicker"
-                                                    id="size">
-                                                    <option selected="" disabled="">Escolher Tamanho</option>
+                                                    id="size" >
+                                                    <option selected="" disabled="" required="">Escolher Tamanho</option>
 
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
@@ -247,7 +247,7 @@
                                             <div class="col-sm-2">
                                                 <span class="label">
 
-                                                    Quant...
+                                                    Quantida...
 
                                                 </span>
                                             </div>
@@ -255,20 +255,21 @@
                                             <div class="col-sm-2">
                                                 <div class="cart-quantity">
                                                     <div class="quant-input">
-                                                        <div class="arrows">
-                                                            <div class="arrow plus gradient"><span class="ir"><i
-                                                                        class="icon fa fa-sort-asc"></i></span></div>
-                                                            <div class="arrow minus gradient"><span class="ir"><i
-                                                                        class="icon fa fa-sort-desc"></i></span></div>
-                                                        </div>
-                                                        <input type="text" id="qty" value="1"
-                                                            min="1">
+                                                        {{-- DEIXAR 'ARROWS' INCREMENTAR - DECREMENTAR, FUNCIONAL --}}
+                                                        {{-- <div class="arrows">
+                                                            <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                                            <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                                        </div> --}}
+
+                                                          <input type="text" id="qty" value="1" min="1">
+
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" id="product_id" value="{{ $product->id }}"
-                                                min="1">
+                                            <input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
+
+
                                             <div class="col-sm-7">
 
                                                 <button type="submit" onclick="addToCart()" class="btn btn-primary"><i
@@ -279,6 +280,7 @@
                                                 </button>
 
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

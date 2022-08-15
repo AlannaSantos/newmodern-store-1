@@ -68,7 +68,8 @@ class IndexController extends Controller
             'categories',
             'products',
             'brands',
-
+            'sliders',
+            'featured',
 
             /**
              * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
@@ -77,8 +78,6 @@ class IndexController extends Controller
              * DE FUGIR DO TRABALHO ASSALARIADO...
              * 
              **/
-            'sliders',
-            'featured',
             // 'hotdeals',
             // 'specialdeals',
             // 'specialoffers',
@@ -124,7 +123,7 @@ class IndexController extends Controller
         // Acessar BD pela Model user, pegar a ID e atribuir à variável $user.
         $user = User::find($id);
 
-        // Após a autenticação, retornar para página perfil. | compact retorna dados em array...
+        // Após a autenticação, retornar para página perfil com os dados usuário compactados
         return view('frontend.profile.user_profile', compact('user'));
     }
 

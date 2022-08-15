@@ -15,14 +15,12 @@ class BrandController extends Controller
         // Pegar os dados mais atuais da table brands(marcas) pela Model e atribuir à variável $brands
         $brands = Brand::latest()->get();
 
-        // após isso, retornar visualização da pagina brand_view localizada em:
-        // views/backend/brand/brand_view.blade.php e passar os dados atribuidos à
-        // variável $brands pelo compact().
+        // após isso, retornar visualização da pagina brand_view
+        // passar os dados atribuidos à variável $brands pelo compact().
         return view('backend.brand.brand_view', compact('brands'));
     }
 
-    // Método para guardar os dados da marca,
-    // Como é um método POST, é nessário chamar Request $request no método.
+    // Método POST para guardar os dados da marca,
     public function BrandStore(Request $request)
     {
         // Validar os input fields marca e a imagem da marca.
@@ -45,7 +43,7 @@ class BrandController extends Controller
         $image = $request->file('brand_image');
         // Criar um Id unica para a imagem e pegar a extensão da imagem
         $generate_name = hexdec(uniqid()) . '.' . $image->getClientOriginalName();
-        // Gerar a imagem e redimensionar para 3000px X 300px e depois salvar na pasta brands (marcas)
+        // Gerar a imagem e redimensionar para 150px X 150px e depois salvar na pasta brands 
         Image::make($image)->resize(150, 150)->save('upload/brand_images/' . $generate_name);
         // Salvar a imagem atualizada
         $save_url = 'upload/brand_images/' . $generate_name;

@@ -336,7 +336,7 @@
                             <div class="product-slider">
                                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
 
-                                    <!-- loop condicional para 'baixar' os dados categoria na index.home -->
+                                    <!-- loop condicional para percorrer os dados produto categorizado na index.home -->
                                     @foreach ($products as $product)
                                         <div class="item item-carousel">
                                             <div class="products">
@@ -391,7 +391,8 @@
 
                                                             </a>
                                                         </h3>
-                                                        <div class="rating rateit-small"></div>
+                                                        {{-- NOTA DE AVALIAÇÃO DO PRODUTO | PROJETO FUTURO --}}
+                                                        {{-- <div class="rating rateit-small"></div> --}}
                                                         <div class="description"></div>
 
                                                         <!--== LÓGICA P/ MOSTRAR VALOR PRODUTO DINAMICAMENTE ==-->
@@ -399,15 +400,15 @@
                                                         <!-- Lógica: se não houver desconto, aparecer o valor normal (product_selling_price)...-->
                                                         @if ($product->product_discount_price == null)
                                                             <div class="product-price"> <span class="price">
-                                                                    {{ $product->product_selling_price }}
+                                                                    R$ {{ $product->product_selling_price }}
                                                                 </span>
                                                             </div>
                                                         @else
                                                             <!-- caso contrário, mostrar valor com o desconto -->
                                                             <div class="product-price"> <span class="price">
-                                                                    {{ $product->product_discount_price }}
+                                                                    R$ {{ $product->product_discount_price }}
                                                                 </span><span class="price-before-discount">
-                                                                    {{ $product->product_selling_price }}
+                                                                    R$ {{ $product->product_selling_price }}
                                                                 </span>
                                                             </div>
                                                         @endif
@@ -538,15 +539,15 @@
                                                             <!-- Lógica: se não houver desconto, aparecer o valor normal (product_selling_price)...-->
                                                             @if ($product->product_discount_price == null)
                                                                 <div class="product-price"> <span class="price">
-                                                                        {{ $product->product_selling_price }}
+                                                                        R$ {{ $product->product_selling_price }}
                                                                     </span>
                                                                 </div>
                                                             @else
                                                                 <!-- caso contrário, mostrar valor com o desconto -->
                                                                 <div class="product-price"> <span class="price">
-                                                                        {{ $product->product_discount_price }}
+                                                                        R$ {{ $product->product_discount_price }}
                                                                     </span><span class="price-before-discount">
-                                                                        {{ $product->product_selling_price }}
+                                                                        R$ {{ $product->product_selling_price }}
                                                                     </span>
                                                                 </div>
                                                             @endif

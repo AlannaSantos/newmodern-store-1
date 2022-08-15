@@ -53,18 +53,16 @@
     @include('frontend.body.header')
     <!-- Chamar o HEADER. Assim todas as páginas terão mesmo conteúdo HEADER |**FRAGMENTAÇÃO** -->
 
-    <!-- ============================================== HEADER : END ============================================== -->
+    <!-- ============================================== CONTENT ============================================== -->
 
     <!-- yield('content') é onde fica o conteúdo (que muda de página p/ pagina) -->
 
     @yield('content')
 
-    <!-- ============================================================= FOOTER ============================================================= -->
+    <!-- =============================================  FOOTER =============================================== -->
 
     @include('frontend.body.footer')
     <!-- Chamar o FOOTER. Assim todas as páginas terão mesmo conteúdo footer | **FRAGMENTAÇÃO** -->
-
-    <!-- ============================================================= FOOTER : END============================================================= -->
 
 
 
@@ -84,7 +82,7 @@
 
 
 
-    <!-- Sweer Alert -->
+    <!-- SweeTt Alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Script para mostrar as mensagens toaster para o admin. -->
