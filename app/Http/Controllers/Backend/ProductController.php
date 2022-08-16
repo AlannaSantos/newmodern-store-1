@@ -237,7 +237,7 @@ class ProductController extends Controller
     {
         $product_thumbnails = $request->id;
         $thumbnail_image = $request->old_image;
-        unlink($thumbnail_image);
+        unlink(public_path('upload/products/thumbnails/' . $thumbnail_image));
 
         // Código Image Intervention Package for PHP
         $image = $request->file('product_thumbnail');

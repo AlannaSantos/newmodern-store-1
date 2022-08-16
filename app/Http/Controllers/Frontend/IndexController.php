@@ -201,10 +201,12 @@ class IndexController extends Controller
 
         // Achar o produto pela Cor 
         $cor = $product->product_color_pt;
+        // Explodir (remover) vírgula, caso haja mais de uma cor
         $product_color_pt = explode(',', $cor);
 
         // Achar o produto pelo tamanho 
         $tamanho = $product->product_size_pt;
+        // Explodir (remover) vírgula, caso haja mais de uma cor
         $product_size_pt = explode(',', $tamanho);
 
         // Achar as imagens da Model Images quando o id do produto combinar, apóis isso, pegar pela função get() e atribuí-los à variável $images

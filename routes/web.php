@@ -96,7 +96,7 @@ Route::middleware([
     // Rota Usuario [PROFILE - PERFIL] - rota p/ acessar a pagina perfil usuario
     Route::get('/user/profile', [IndexController::class, 'UserProfile'])->name('user.profile');
 
-    // Rota Usuario [PROFILE - PERFIL] - rota p/ guardar dados perfil usuario editados pelo mesmo - Store, em inglês, é guardar/manter
+    // Rota Usuario [PROFILE - PERFIL] - rota p/ guardar dados perfil usuario editados pelo mesmo
     Route::post('/user/profile/store', [IndexController::class, 'UserProfileStore'])->name('user.profile.store');
 
     // Rota Usuario [PASSWORD] - rota p/ acessar página mudar senha usuario
