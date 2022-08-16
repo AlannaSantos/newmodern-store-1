@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
 {
-    // Método p/ acessar HOME
+    // MÉTODO P/ ACESSAR HOME
     public function index()
     {
-        // Pegar os dados da tabelae categoria em ordem crescente e atribílos à variável $categories
+        // Pegar os dados da tabela categoria em ordem crescente e atribuí-os à variável $categories
         $categories = Category::orderBy('category_name_pt', 'ASC')->get();
 
         // Pegar os dados da tabela produtos, onde o status é um (ativo) em ordem decrescnte e atribuílos à varipavel $products
@@ -101,7 +101,7 @@ class IndexController extends Controller
         ));
     }
 
-    // Método logout usuário
+    // MÉTODO LOGOUT USUÁRIO
     public function UserLogout()
     {
 
@@ -114,7 +114,7 @@ class IndexController extends Controller
         return Redirect()->route('index');
     }
 
-    //  Método p/ acessar view_page 'meu perfil'
+    //  MÉTODO P/ ACESSAR VIEW_PAGE 'MEU PERFIL'
     public function UserProfile()
     {
         //Verificar o usuario pelo ID e atribuir à variável ID
@@ -128,7 +128,7 @@ class IndexController extends Controller
     }
 
 
-    // Método para atualizar e guardar o dados usuario ao editar perfil - Mesma lógica do Admin.
+    // MÉTODO POST PARA ATUALIZAR E GUARDAR O DADOS USUARIO AO EDITAR PERFIL - MESMA LÓGICA DO ADMIN.
     public function UserProfileStore(Request $request)
     {
         $data = User::find(Auth::user()->id);
@@ -151,17 +151,17 @@ class IndexController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('index')->with($notification);
+        return redirect()->route('user.profile')->with($notification);
     }
 
-    // Método para atualizar senha usuario
+    // MÉTODO PARA ATUALIZAR SENHA USUARIO
     public function UserChangePassword()
     {
 
         return view('frontend.profile.change_password');
     }
 
-    // Método para atualizar e guardar a senha usuario ao mudar senha - Mesma lógica do Admin.
+    // MÉTODO PARA ATUALIZAR E GUARDAR A SENHA USUARIO AO MUDAR SENHA - MESMA LÓGICA DO ADMIN.
     public function  UserPasswordUpdate(Request $request)
     {
         $validateData = $request->validate([
@@ -193,7 +193,7 @@ class IndexController extends Controller
         }
     }
 
-    // Método redirecionamento para página detalhes produto
+    // MÉTODO REDIRECIONAMENTO PARA PÁGINA DETALHES PRODUTO
     public function ProductDetails($id, $slug)
     {
         // Achar o produto pelo o ID
@@ -242,7 +242,7 @@ class IndexController extends Controller
     //     return view('frontend.tags.tags_view', compact('products', 'categories'));
     // }
 
-    // Método redirecionamento para página detalhes produto
+    // MÉTODO REDIRECIONAMENTO PARA PÁGINA DETALHES PRODUTO
     public function ProductSubDetails($subcategory_id, $slug)
     {
         /**
@@ -261,7 +261,7 @@ class IndexController extends Controller
         return view('frontend.product.subcategory_view', compact('products', 'categories'));
     }
 
-    // Método redirecionamento para página detalhes produto
+    // MÉTODO REDIRECIONAMENTO PARA PÁGINA DETALHES PRODUTO
     public function ProductSubSubDetails($subsubcategory_id, $slug)
     {
         /**
@@ -280,7 +280,7 @@ class IndexController extends Controller
         return view('frontend.product.subsubcategory_view', compact('products', 'categories'));
     }
 
-    // Método p/ pegar os dados do produto em json e passar p/ a bootstrap modal utilizando AJAX
+    // MÉTODO P/ PEGAR OS DADOS DO PRODUTO EM JSON E PASSAR P/ A BOOTSTRAP MODAL UTILIZANDO AJAX
     public function ProductViewAjax($id)
     {
         // Achar o produto pelo o ID com a marca e categoria

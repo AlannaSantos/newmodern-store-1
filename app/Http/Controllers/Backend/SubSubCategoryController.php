@@ -25,7 +25,7 @@ class SubSubCategoryController extends Controller
 
 
 
-    // Função da rota p/ pegar url AJAX e definir as subcaterias inseridas em cada categoria 
+    // MÉTODO AJAX: PEGAR URL AJAX E DEFINIR AS SUBCATERIAS INSERIDAS EM CADA CATEGORIA 
     public function GetSubCategory($category_id)
     {
         $subcategory = SubCategory::where('category_id', $category_id)->orderBy('subcategory_name_pt', 'ASC')->get();
@@ -34,16 +34,16 @@ class SubSubCategoryController extends Controller
 
 
 
-     // Função da rota p/ pegar url AJAX e definir as subsubcaterias inseridas em cada subcategoria 
-     public function GetSubSubCategory($subcategory_id)
-     {
-         $subsubcategory = SubSubCategory::where('subcategory_id', $subcategory_id)->orderBy('subsubcategory_name_pt', 'ASC')->get();
-         return json_encode($subsubcategory);
-     }
+    // MÉTODO AJAX: PEGAR URL AJAX E DEFINIR AS SUBSUBCATERIAS INSERIDAS EM CADA SUBCATEGORIA 
+    public function GetSubSubCategory($subcategory_id)
+    {
+        $subsubcategory = SubSubCategory::where('subcategory_id', $subcategory_id)->orderBy('subsubcategory_name_pt', 'ASC')->get();
+        return json_encode($subsubcategory);
+    }
 
 
 
-    // MÉTODO P/ GUARDAR OS DADOS INSERIDOS DA SUB-SUB-CATEGORIA | POST = (Request $request)
+    // MÉTODO POST P/ GUARDAR OS DADOS INSERIDOS DA SUB-SUB-CATEGORIA
     public function SubSubCategoryStore(Request $request)
     {
         $request->validate(
@@ -64,7 +64,7 @@ class SubSubCategoryController extends Controller
 
         // Salvar imagem no BD
         SubSubCategory::insert([
- 
+
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             'subsubcategory_name_pt' => $request->subsubcategory_name_pt,
@@ -101,7 +101,7 @@ class SubSubCategoryController extends Controller
 
         // Após buscar a Id e atribuir-à variável $subcategory, retornar para página editar subcategorias;
         // Cria, também, um array com a marca selecionada pelo ID, essa é a função fo compact('brands'));
-        return view('backend.subsubcategory.subsubcategory_edit', compact('categories','subcategories','subsubcategories'));
+        return view('backend.subsubcategory.subsubcategory_edit', compact('categories', 'subcategories', 'subsubcategories'));
     }
 
 
@@ -115,13 +115,11 @@ class SubSubCategoryController extends Controller
         // Atualizar dados no BD
         SubSubCategory::findOrFail($subsubcategory_id)->update([
 
-            'category_id' => $request->category_id, 
-            'subcategory_id' => $request->subcategory_id, 
-            // 'subsubcategory_name_en' => $request->subsubcategory_name_en,
+            'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
             'subsubcategory_name_pt' => $request->subsubcategory_name_pt,
 
             //Slug: deixar o BD mais organizado; strtolower converte string para minusculo, se tiver espaço, substitui com traço
-            // 'subsubcategory_slug_en' => strtolower(str_replace('', '-', $request->subsubcategory_name_en)),
             'subsubcategory_slug_pt' => strtolower(str_replace('', '-', $request->subsubcategory_name_pt)),
 
         ]);
@@ -133,7 +131,7 @@ class SubSubCategoryController extends Controller
             'alert-type' => 'success'
         );
 
-        // Retornar para pagina todas marcas
+        // Retornar para pagina todas sub-sub-categorias
         return redirect()->route('all.subsubcategories')->with($notification);
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+/* IMPORTAR MODEL ADMIN */
+
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
@@ -7,37 +9,42 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Contracts\Service\Attribute\Required;
+
 
 
 class AdminProfileController extends Controller
 {
-    // Método p/ acessar perfil admin. Busca pelo IdAdmin e retorna view perfil
+    // MÉTODO P/ ACESSAR PERFIL ADMIN
     public function AdminProfile()
     {
         // Acessa Admin Model p/ pegar o adm pre-registrado no BD pelo ID (1)
         $adminData = Admin::find(1);
-        // Depois retorna perfil adm editável
-        // Onde compact() cria um array com a variavél existente
+        // Depois retorna view perfil_admin com os dados do administrador atribúido à variável $adminData compactados
         return view('admin.admin_profile_view', compact('adminData'));
     }
 
-    // Metodo p/ editar perfil admin. Busca peloo IdAdmin e retorn view editar perfil
+    // METODO P/ EDITAR PERFIL ADMIN
     public function AdminProfileEdit()
     {
+        // Acessa Admin Model p/ pegar o adm pre-registrado no BD pelo ID (1)
         $editData = Admin::find(1);
+        // Depois retorna view perfil_admin com os dados do administrador atribúido à variável $adminData compactados
         return view('admin.admin_profile_edit', compact('editData'));
     }
 
-    // Método p/ postar (POST) dados editados do admin
+    // MÉTODO POST P/ SALVAR DADOS ADMIN
     public function AdminProfileStore(Request $request)
     {
+        // Acessar table Admin pela Model, e buscar o Admin com id 1 e atribuir esse dado à variável $data
         $data = Admin::find(1);
+        // Acessar a coluna nome e atribuir este dado à variável $data
         $data->name = $request->name;
+        // Acessar a coluna email e atribuir este dado à variável $data
         $data->email = $request->email;
 
-        // Condição de upload de imagem:
+        // Condição de upload de imagem: se o usuário decidir salvar imagem perfil...
         if ($request->file('profile_photo_path')) {
+            // Solicitar/acessar o arquivo e caminho do mesmo
             $file = $request->file('profile_photo_path');
             // Salvar apenas a foto atual
             @unlink(public_path('upload/admin_images/' . $data->profile_photo_path));
@@ -60,13 +67,14 @@ class AdminProfileController extends Controller
         return redirect()->route('admin.profile')->with($notification);
     }
 
-    // Método para mudar senha mantenedor: apenas retorn a view
+    // MÉTODO PARA MUDAR SENHA MANTENEDOR
     public function AdminChangePassword()
     {
+        // Apenas retorna a view mudar senha admin
         return view('admin.admin_change_password');
     }
 
-    // Método para atualizar senha alterada mantenedor
+    // MÉTODO PARA ATUALIZAR SENHA ALTERADA MANTENEDOR
     public function  AdminUpdateChangePassword(Request $request)
     {
         $validateData = $request->validate([
@@ -77,15 +85,15 @@ class AdminProfileController extends Controller
         // Pega a senha criptografada do mantenedor e salva na variável $hashedPassword
         $hashedPassword = Admin::find(1)->password;
 
-        /*Condição: se o mantenedor requisitar mudança de senha , realizar: */
+        /*CONDIÇÃO: SE O MANTENEDOR REQUISITAR MUDANÇA DE SENHA , REALIZAR: */
 
         // verificar se a senha é compativel com a senha salva no BD | Hash::check é uma função nativa do Laravel */
         if (Hash::check($request->oldpassword, $hashedPassword)) {
 
-            // Pega os dados admin (Senha) e armazena na variavél $admin
+            // Pega os dados admin (Senha) pelo id 1 e armazena na variavél $admin
             $admin = Admin::find(1);
 
-            // Acessa o campo 'password' no BD com a variável $admin e cria, então, uma senha HASH
+            // Acessa o campo 'password' no BD com a variável $admin e cria uma senha HASH
             $admin->password = Hash::make($request->password);
 
             // Salvar dado
@@ -97,7 +105,9 @@ class AdminProfileController extends Controller
             // Após logout, mantenedor é redirecionado para página logout
             return redirect()->route('admin.logout');
         }
-        /*Condição: caso contrário, redirecionar para página anterior */ else {
+
+        /*CONDIÇÃO: CASO CONTRÁRIO, REDIRECIONAR PARA PÁGINA ANTERIOR */ 
+        else {
             return redirect()->back();
         }
     }

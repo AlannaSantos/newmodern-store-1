@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Wishlist;
 use App\Models\Coupon;
-use App\Models\Shipping;
-use App\Models\ShippingDistrict;
 use App\Models\ShippingDivision;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -17,10 +15,18 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    // Método p/ adicionar Item no Carrinho
+    // MÉTODO P/ ADICIONAR ITEM NO CARRINHO COM DADOS ESPECÍFICOS
     public function AddToCart(Request $request, $id)
     {
-        // Tentativa de aplicar cupom
+        /*
+         * Tentativa de aplicar cupom
+         * Ainda não funciona
+         * Deixo claro, também, que não faz parte do PJ1
+         * trata-se de um projeto real
+         * projeto que me ajudará a fugir do trabalho assalariado
+         * ou afundar na desgraça de vez devido à todas as dividas que adiquiri após 
+         * divórcio. kkk  
+         */
         if (Session::has('coupon')) {
             Session::forget('coupon');
         }
@@ -29,13 +35,20 @@ class CartController extends Controller
 
         // Se o produto não tem disconto 
         if ($product->product_discount_price == null) {
-            // pacote bumbummen99/shoppingcart
+            /*
+             * pacote bumbummen99/shoppingcart
+             * para os interessados...
+             * toda lógica carrinho eu tirei da documentação bumbummen99
+             * ou seja, para obter um entendimento maior sobre este trabalho
+             * será necessário ler esta documentação pois minha oratória foi destruída
+             * após 12 anos de abuso cocaína e diabarias... não saberei explicar didaticamente
+             */
             Cart::add([
                 'id' => $id,
                 'name' => $request->product_name,
                 'qty' => $request->quantity,
                 'price' => $product->product_selling_price,
-                'weight' => 1,
+                'weight' => 1, // deixei o peso aqui, não é obrigatório... desconsiderar.
                 'options' => [
                     'image' => $product->product_thumbnail,
                     'color' => $request->color,
@@ -64,7 +77,7 @@ class CartController extends Controller
         }
     }
 
-    // Método para adicionar Carrinho header
+    // MÉTODO PARA ADICIONAR MINICARRINHO HEADER
     public function AddMiniCart()
     {
         // bumbummen99/shoppingcart  
@@ -80,7 +93,7 @@ class CartController extends Controller
         ));
     }
 
-    // Método p/ Remover Item no Carrinho Temporário
+    // MÉTODO P/ REMOVER ITEM NO MINICARRINHO HEADER
     public function RemoveMiniCart($rowId)
     {
         // bumbummen99/shoppingcart 
@@ -88,10 +101,15 @@ class CartController extends Controller
         return response()->json(['success' => 'Produto Removido do Carrinho']);
     }
 
-    // PROJETO FUTURO LUCAS
-    // O item só poderá ser adicionado à lista de desejos se e somente se, o usuário estiver 'logado'
-    // O item, também, só poderá ser adicionado, se e somente se, não existir na lista. (não foi adicionado ainda)  
-    // Método p/ adicionar Item na Lista de Desejos
+    /* 
+     * WISHLIST | PROJETO FUTURO LUCAS 
+     * O item só poderá ser adicionado à lista de desejos se e somente se, o usuário estiver 'logado'
+     * O item, também, só poderá ser adicionado, se e somente se, não existir na lista.
+     * PORÉM, não faz parte do PJ1 e não deve ser cobrado na apresentação. 
+     * CONTUDO, como ja mencionei varias vezes faz parte de um projeto real de origem extritamente financiera   
+     */
+
+    // MÉTODO P/ ADICIONAR ITEM NA LISTA DE DESEJOS
     public function AddToWishList(Request $request, $product_id)
     {
         // Verificar se o usuário está logado ou existe
@@ -120,10 +138,15 @@ class CartController extends Controller
 
 
 
-    // ============================= MÉTODOS  AJAX APLICAR VOUCHER/CUPOM  ============================= //
+    /* 
+     * APLICAR CUPOM | PROJETO FUTURO LUCAS | NÇAO FUNCIONA
+     * O item só poderá ser adicionado à lista de desejos se e somente se, o usuário estiver 'logado'
+     * O item, também, só poderá ser adicionado, se e somente se, não existir na lista.
+     * PORÉM, não faz parte do PJ1 e não deve ser cobrado na apresentação. 
+     * CONTUDO, como ja mencionei varias vezes faz parte de um projeto real de origem extritamente financiera   
+     */
 
     // Método aplicar voucher/cupom ajax
-    // Não precisa focar muito, será implmentado futuramente
     public function CouponApply(Request $request)
     {
         // Relação db cupom com o field name ajax econtrada na main_master
@@ -170,7 +193,7 @@ class CartController extends Controller
         }
     }
 
-    // Método p/ remover cupom
+    // MÉTODO P/ REMOVER CUPOM
     public function CouponRemove()
     {
         // lógica simples: apenas esquecer o cupom inserido na Sessão usuário ou visitante.
@@ -178,7 +201,7 @@ class CartController extends Controller
         return response()->json(['success' => 'Cupom Removido com Sucesso']);
     }
 
-    // Método para redirecionar usuário à página checkout
+    // MÉTODO PARA REDIRECIONAR USUÁRIO À PÁGINA CHECKOUT
     public function Checkout()
     {
         // Para prosseguir p/ o checkout, o usuário deve estar autenticado. Se estiver td certo, prosseguir,
@@ -198,7 +221,7 @@ class CartController extends Controller
                 // Se o carrinho estiver vazio e o usuário clickar em 'proceder c/ o checkout'
                 // Então, notificar com mensagem de erro e redirecionar para a home.
             } else {
-                
+
                 $notification = array(
                     'message' => 'Adicionar pelo menos um produto',
                     'alert-type' => 'error'
@@ -215,5 +238,5 @@ class CartController extends Controller
 
             return redirect()->route('login')->with($notification);
         }
-    }  
+    }
 }

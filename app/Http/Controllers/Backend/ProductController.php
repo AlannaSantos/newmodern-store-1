@@ -1,6 +1,10 @@
 <?php
 
-// Importar todas as models
+/**
+ * IMPORTAR TODAS AS MODELS AQUI:
+ * CATEGORIAS E CATEGORIAS FILHO
+ * MARCA, FORNECEDOR E IMAGENS
+ */
 
 namespace App\Http\Controllers\Backend;
 
@@ -30,7 +34,7 @@ class ProductController extends Controller
         // Pegar todos os dados da Model Supplier
         $suppliers = Supplier::latest()->get();
 
-        // Após pegar os dados das Models pelo compact(), retornar p a página em Backend/products.product.add
+        // Após pegar os dados das Models pelo compact('variável...), retornar p a página em Backend/products.product.add
         return view('backend.product.product_add', compact('categories', 'brands', 'suppliers'));
     }
 
