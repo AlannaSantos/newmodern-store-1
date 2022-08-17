@@ -23,9 +23,7 @@ class CartController extends Controller
          * Ainda não funciona
          * Deixo claro, também, que não faz parte do PJ1
          * trata-se de um projeto real
-         * projeto que me ajudará a fugir do trabalho assalariado
-         * ou afundar na desgraça de vez devido à todas as dividas que adiquiri após 
-         * divórcio. kkk  
+         * que me ajudará a fugir do trabalho assalariado  
          */
         if (Session::has('coupon')) {
             Session::forget('coupon');
@@ -40,8 +38,7 @@ class CartController extends Controller
              * para os interessados...
              * toda lógica carrinho eu tirei da documentação bumbummen99
              * ou seja, para obter um entendimento maior sobre este trabalho
-             * será necessário ler esta documentação pois minha oratória foi destruída
-             * após 12 anos de abuso cocaína e diabarias... não saberei explicar didaticamente
+             *
              */
             Cart::add([
                 'id' => $id,
