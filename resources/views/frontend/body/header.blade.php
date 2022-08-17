@@ -236,13 +236,13 @@
                                     </li>
                                 @endforeach
 
-                                <li class="dropdown  navbar-right special-menu"> <a href="#">
+                                {{-- <li class="dropdown  navbar-right special-menu"> <a href="#">
 
                                         Oferta do
                                         dia
 
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
 
                             <div class="clearfix"></div>

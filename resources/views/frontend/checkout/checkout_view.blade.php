@@ -106,14 +106,6 @@
 
 
                                             <div class="form-group">
-                                                <h5><b>
-                                                        {{-- @if (session()->get('language') == 'portuguese')
-                                                            Selecionar Estado
-                                                        @else
-                                                            Select State
-                                                        @endif --}}
-                                                        {{-- </b> <span class="text-danger">*</span> --}}
-                                                </h5>
                                                 <div class="controls">
                                                     <select name="shipping_division_id" class="form-control"
                                                         required="">
@@ -246,38 +238,31 @@
 
                                 <div class="row">
                                     <!--=================== PAGAMENTO STRIPE (CC) =================== -->
-                                    <div class="col-md-10">
+                                    {{-- <div class="col-md-10">
                                         <input type="radio" name="payment_method" value="stripe">
                                         <label for="">
 
                                             Cartão
 
-                                        </label>
-                                        {{-- <img src="{{ asset('frontend/assets/images/payments/4.png') }}">
+                                        </label> --}}
+                                    {{-- <img src="{{ asset('frontend/assets/images/payments/4.png') }}">
                                         <img src="{{ asset('frontend/assets/images/payments/3.png') }}">
                                        <img src="{{ asset('frontend/assets/images/payments/2.png') }}"> --}}
-                                    </div>
-                                    <br>
+                                    {{-- </div>
+                                    <br> --}}
 
                                     <!--=================== PAGAMENTO ESPÉCIE =================== -->
                                     <div class="col-md-10">
                                         <input type="radio" name="payment_method" value="cash">
-                                        <label for="">
-
-                                            Espécie
-
-                                        </label>
+                                        <label for="">Espécie</label>
                                     </div>
                                 </div>
+
 
                                 <!--=================== PAGAMENTO CARTÃO =================== -->
                                 {{-- <div class="col-md-10">
                                     <input type="radio" name="payment_method" value="card">
-                                    <label for="">
-
-                                        Cartão
-
-                                    </label>
+                                    <label for="">Pix</label>
                                 </div> --}}
 
                                 <!--=================== PAGAMENTO PAYPAL =================== -->
@@ -288,7 +273,7 @@
                                         </label>
 
                                       <img src="{{ asset('frontend/assets/images/payments/1.png') }}"> 
-                                    </div> --}}
+                                </div> --}}
 
                             </div>
                             <br>

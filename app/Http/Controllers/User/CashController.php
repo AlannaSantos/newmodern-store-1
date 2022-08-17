@@ -27,14 +27,19 @@ class CashController extends Controller
     public function CashOrder(Request $request)
     {
 
-        // Se existir cupom na sessão, mostrar a lógica desconto | PROJETO REAL LUCAS | NÃO APRESENTAR
+        /**
+         * 
+         * PROJETO REAL LUCAS  
+         * NÃO APRESENTAR
+         * Se existir cupom na sessão, mostrar a lógica desconto, mas, não funciona ainda
+         */
         if (Session::has('coupon')) {
             $total_amount = Session::get('coupon')['total_amount'];
         } else {
             $total_amount = round(Cart::total());
         }
 
-        // Inserir Dados nas duas tabelas (order e order_item)
+        // INSERIR DADOS NAS DUAS TABELAS (ORDER E ORDER_ITEM)
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'name' => $request->name,
@@ -101,7 +106,7 @@ class CashController extends Controller
             Session::forget('coupon');
         }
 
-        // Destruir cartão (esvaziar) após efetuar compra e retornar p/ a a lista de pedidos user
+        // Destruir cartão (esvaziar) 
         Cart::destroy();
 
         $notification = array(
@@ -109,6 +114,7 @@ class CashController extends Controller
             'alert-type' => 'success'
         );
 
+        // Após efetuar compra e retornar p/ a a lista de pedidos user
         return redirect()->route('my.orders')->with($notification);
     }
 }

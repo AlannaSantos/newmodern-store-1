@@ -34,8 +34,8 @@ class CheckoutController extends Controller
         $data['shipping_division_id'] = $request->shipping_division_id;
         $data['shipping_district_id'] = $request->shipping_district_id;
         $data['name'] = $request->name;
-    	$data['email'] = $request->email;
-    	$data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
         $data['postal_code'] = $request->postal_code;
         $data['shipping_street'] = $request->shipping_street;
         $data['shipping_number'] = $request->shipping_number;
@@ -47,9 +47,14 @@ class CheckoutController extends Controller
         // Se o cliente clickar em pagamento cartão, retorna view Stripe
         if ($request->payment_method == 'stripe') {
             return view('frontend.payment.stripe', compact('data', 'cartTotal'));
-        } elseif ($request->payment_method == 'card') {
-            return 'card';
-        // Ou retorna view espécie , se o cliente clickar em pagamento espécie
+
+            /** 
+             * projeto futuro pagamento pix e boleto 
+             * } elseif ($request->payment_method == 'pix') {
+             *   return 'pix';
+            */
+
+        // Ou retorna view espécie ,se o cliente clickar em pagamento espécie
         } else {
             return view('frontend.payment.cash', compact('data', 'cartTotal'));
         }
