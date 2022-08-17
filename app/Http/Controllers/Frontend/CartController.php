@@ -38,7 +38,7 @@ class CartController extends Controller
              * para os interessados...
              * toda lógica carrinho eu tirei da documentação bumbummen99
              * ou seja, para obter um entendimento maior sobre este trabalho
-             *
+             * leia a documentação encontrada no readme.mk deste projeto.
              */
             Cart::add([
                 'id' => $id,
