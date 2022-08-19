@@ -1,10 +1,5 @@
 <?php
 
-/**
- * COPIEI E COLEI A MESMA LÓGICA DA STRIPE CONTROLLER
- * APENAS TIREI TUDO RELACIONADO A API STRIPE.
- * 
- */
 
 namespace App\Http\Controllers\User;
 
