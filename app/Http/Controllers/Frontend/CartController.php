@@ -18,17 +18,7 @@ class CartController extends Controller
     // MÉTODO P/ ADICIONAR ITEM NO CARRINHO COM DADOS ESPECÍFICOS
     public function AddToCart(Request $request, $id)
     {
-        /*
-         * Tentativa de aplicar cupom
-         * Ainda não funciona
-         * Deixo claro, também, que não faz parte do PJ1
-         * trata-se de um projeto real
-         * que me ajudará a fugir do trabalho assalariado  
-         */
-        if (Session::has('coupon')) {
-            Session::forget('coupon');
-        }
-
+        // Achar o produto pelo Model Produto utilizando o id e attribuí à variável $product
         $product = Product::findOrFail($id);
 
         // Se o produto não tem disconto 
@@ -98,105 +88,6 @@ class CartController extends Controller
         return response()->json(['success' => 'Produto Removido do Carrinho']);
     }
 
-    /* 
-     * WISHLIST | PROJETO FUTURO LUCAS 
-     * O item só poderá ser adicionado à lista de desejos se e somente se, o usuário estiver 'logado'
-     * O item, também, só poderá ser adicionado, se e somente se, não existir na lista.
-     * PORÉM, não faz parte do PJ1 e não deve ser cobrado na apresentação. 
-     * CONTUDO, como ja mencionei varias vezes faz parte de um projeto real de origem extritamente financiera   
-     */
-
-    // MÉTODO P/ ADICIONAR ITEM NA LISTA DE DESEJOS
-    public function AddToWishList(Request $request, $product_id)
-    {
-        // Verificar se o usuário está logado ou existe
-        if (Auth::check()) {
-
-            $exists = Wishlist::where('user_id', Auth::id())->where('product_id', $product_id)->first();
-
-            // Se o produto não existir na Lista Desejos, então, adicionar, caso contrário, impede a adição.
-            if (!$exists) {
-                // Se existir, inserir o produto na Lista de Desejos com os seguintes atributos:
-                Wishlist::insert([
-                    'user_id' => Auth::id(),
-                    'product_id' => $product_id,
-                    'created_at' => Carbon::now(),
-                ]);
-                return response()->json(['success' => 'Produto Adicionado à sua Lista de Desejos']);
-            } else {
-                // Se o usuário tentar adicionar um produto já adicionado, mostrar mensagem de erro.
-                return response()->json(['error' => 'Produto ja foi adicionado à sua Lista de Desejos ']);
-            }
-        } else {
-            // Se o usário não for autenticado ou não estiver 'logado', mostrar toastr msg erro.
-            return response()->json(['error' => 'Efetuar Login antes de Adicionar à sua Lista de Desejos']);
-        }
-    }
-
-
-
-    /* 
-     * APLICAR CUPOM | PROJETO FUTURO LUCAS | NÇAO FUNCIONA
-     * O item só poderá ser adicionado à lista de desejos se e somente se, o usuário estiver 'logado'
-     * O item, também, só poderá ser adicionado, se e somente se, não existir na lista.
-     * PORÉM, não faz parte do PJ1 e não deve ser cobrado na apresentação. 
-     * CONTUDO, como ja mencionei varias vezes faz parte de um projeto real de origem extritamente financiera   
-     */
-
-    // Método aplicar voucher/cupom ajax
-    public function CouponApply(Request $request)
-    {
-        // Relação db cupom com o field name ajax econtrada na main_master
-        $coupon = Coupon::where('coupon_name', $request->coupon_name)->where('coupon_validity', '>=', Carbon::now()->format('Y-m-d'))->first();
-
-        // Condição: se existe cupom, e o mesmo está nos conformes, 'colocar' cupom na sessão usuário
-        // Mostrar nome, disconto, calcular o descconto e valor total após desconto.
-        if ($coupon) {
-
-            Session::put('coupon', [
-                'coupon_name' => $coupon->coupon_name,
-                'coupon_discount' => $coupon->coupon_discount,
-                'discount_amount' => round(Cart::total() * $coupon->coupon_discount / 100),
-                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount / 100)
-            ]);
-
-            return response()->json(array(
-                'validity' => true,
-                'success' => 'Cupom Aplicado com Sucesso'
-            ));
-        } else {
-            return response()->json(['error' => 'Cupom Inválido']);
-        }
-    }
-
-    // Método p/ calcular desconto do valor total dos produtos com cupom utilizando funções do parte bumbummen
-    // Não precisa focar muito, será implmentado futuramente
-    public function CouponCalculation()
-    {
-        if (Session::has('coupon')) {
-            return response()->json(array(
-                'subtotal' => Cart::total(),
-                'coupon_name' => session()->get('coupon')['coupon_name'],
-                'coupon_discount' => session()->get('coupon')['coupon_discount'],
-                'discount_amout' => session()->get('coupon')['discount_amout'],
-                'total_amout' =>  session()->get('coupon')['total_amout'],
-
-            ));
-        } else {
-
-            return response()->json(array(
-                'total' => Cart::total(),
-            ));
-        }
-    }
-
-    // MÉTODO P/ REMOVER CUPOM
-    public function CouponRemove()
-    {
-        // lógica simples: apenas esquecer o cupom inserido na Sessão usuário ou visitante.
-        Session::forget('coupon');
-        return response()->json(['success' => 'Cupom Removido com Sucesso']);
-    }
 
     // MÉTODO PARA REDIRECIONAR USUÁRIO À PÁGINA CHECKOUT
     public function Checkout()

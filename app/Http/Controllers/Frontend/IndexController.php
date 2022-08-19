@@ -40,29 +40,6 @@ class IndexController extends Controller
 
         $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
 
-        // $hotdeals = Product::where('product_hot_deals', 1)->where('product_discount_price', '!=', null)->orderBy('id', 'DESC')->limit(6)->get();
-
-        // $specialdeals = Product::where('product_special_deals', 1)->orderBy('id', 'DESC')->limit(3)->get();
-
-        // $specialoffers = Product::where('product_special_offer', 1)->orderBy('id', 'DESC')->limit(4)->get();
-
-
-        /**
-         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
-         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
-         * TRATA-SE DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
-         * DE FUGIR DO TRABALHO ASSALARIADO...
-         * 
-         **/
-        // $skip_category_0 = Category::skip(0)->first();
-        // $skip_product_0 = Product::where('product_status', 1)->where('category_id', $skip_category_0->id)->orderBy('id', 'DESC')->get();
-
-        // $skip_category_1 = Category::skip(1)->first();
-        // $skip_product_1 = Product::where('product_status', 1)->where('category_id', $skip_category_1->id)->orderBy('id', 'DESC')->get();
-
-        // $skip_brand_1 = Brand::skip(1)->first();
-        // $skip_brand_product_1 = Product::where('product_status', 1)->where('brand_id', $skip_brand_1->id)->orderBy('id', 'DESC')->get();
-
 
         return view('frontend.index', compact(
             'categories',
@@ -70,33 +47,6 @@ class IndexController extends Controller
             'brands',
             'sliders',
             'featured',
-
-            /**
-             * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
-             * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
-             * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
-             * DE FUGIR DO TRABALHO ASSALARIADO...
-             * 
-             **/
-            // 'hotdeals',
-            // 'specialdeals',
-            // 'specialoffers',
-
-        /**
-         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
-         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
-         * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
-         * DE FUGIR DO TRABALHO ASSALARIADO...
-         * 
-         **/
-
-            // 'skip_category_0',
-            // 'skip_product_0',
-            // 'skip_category_1',
-            // 'skip_product_1',
-            // 'skip_brand_1',
-            // 'skip_brand_product_1' 
-
 
         ));
     }
@@ -223,24 +173,6 @@ class IndexController extends Controller
         return view('frontend.product.product_details', compact('product', 'images', 'product_color_pt', 'product_size_pt', 'related'));
     }
 
-    /**
-     * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
-     * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
-     * TRATA-SE, DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
-     * DE FUGIR DO TRABALHO ASSALARIADO...
-     * 
-     */
-    // public function ProductTags($tag)
-    // {
-    //     // 'Pegar' 'Baixar' (verificar) o produto ativo
-    //     $products = Product::where('product_status', 1)->where('product_tags_pt', $tag)->orderBy('id', 'DESC')->paginate(3);
-
-    //     //'Baixar' as informações admin backend categorias no menu vertical esquerdo da HOME
-    //     $categories = Category::orderBy('category_name_pt', 'ASC')->get();
-
-    //     // retornar view tags com a variável compactada
-    //     return view('frontend.tags.tags_view', compact('products', 'categories'));
-    // }
 
     // MÉTODO REDIRECIONAMENTO PARA PÁGINA DETALHES PRODUTO
     public function ProductSubDetails($subcategory_id, $slug)
