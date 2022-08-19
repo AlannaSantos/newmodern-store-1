@@ -45,6 +45,8 @@ class CheckoutController extends Controller
         $cartTotal = Cart::total();
 
         // Se o cliente clickar em pagamento cartão, retorna view Stripe
+        // FUNCIONA MAS NÃO VAMOS MOSTRAR... MOTIVO: ACHARAM ESTRANHO TRABALHARMOS COM PAGAMENTO CARTÃO...
+        // TRABALHAREI NISTO DEPOIS DA APRESENTAÇÃO...
         if ($request->payment_method == 'stripe') {
             return view('frontend.payment.stripe', compact('data', 'cartTotal'));
 
@@ -52,7 +54,7 @@ class CheckoutController extends Controller
              * projeto futuro pagamento pix e boleto 
              * } elseif ($request->payment_method == 'pix') {
              *   return 'pix';
-            */
+             */
 
         // Ou retorna view espécie ,se o cliente clickar em pagamento espécie
         } else {

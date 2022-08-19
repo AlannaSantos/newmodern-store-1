@@ -21,9 +21,9 @@
                         <div class="widget-user-image">
 
 
-                            {{-- IMAGE CONDITION: when it is not empty, it gets admin's photo
-                            OR (?) gets images in /public/upload/admin_images
-                            OR (:)loads default images located in /public/upload --}}
+                            {{-- CONDIÇÃO IMAGEM: SE não estiver vazio, pega a foto admin
+                            ENTÃO (?) gets images in /public/upload/admin_images
+                            CASO CONTRÁRIO (:)loads default images located in /public/upload --}}
                             <img class="rounded-circle"
                                 src="{{ !empty($adminData->profile_photo_path)
                                     ? url('upload/admin_images/' . $adminData->profile_photo_path)
