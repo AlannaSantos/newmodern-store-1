@@ -82,10 +82,10 @@
 
 
 
-    <!-- SweeTt Alert -->
+    <!-- =================== SWEET ALERT =================== -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Script para mostrar as mensagens toaster para o admin. -->
+    <!-- ============== TOASTER MESSAGE ADMIN ============== -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
@@ -113,7 +113,7 @@
         @endif
     </script>
 
-    <!-- Modal adicionar produto no carrinho -->
+    <!-- ============ MODAL BOOTSTRAP ADICIONAR PRODUTO NO CARRINHO ============  -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -244,6 +244,11 @@
         </div>
     </div>
 
+    {{-- chamar o csrf para prevenir ataques cross site REFERENCING
+    eu tirei este código deste forum: 
+    https://www.edureka.co/community/65251/how-to-pass-csrf-token-with-ajax-request-in-laravel
+    é ncessário, portanto, realizar este setup e declarar o token em 
+    <head><meta name="csrf-token" content="{{ csrf_token() }}"> </head> --}}
 
     <script type="text/javascript">
         $.ajaxSetup({
@@ -435,7 +440,7 @@
     </script>
 
 
-    <!-- ========================  MEU CARRINHO AJAX ========================  -->
+    <!-- ===========================  MEU CARRINHO AJAX ==========================  -->
     <script type="text/javascript">
         // Função adiciona o produto sem ter que 'carregar' a página novamente -AJAX serve p/ isso...
         function cart() {
