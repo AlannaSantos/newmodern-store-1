@@ -251,7 +251,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         })
-        // View Produto com Bootstrap Modal 
+        // AJAX View Produto com Bootstrap Modal 
         function productView(id) {
             // Id toaster msg (alert)
             $.ajax({
@@ -435,125 +435,6 @@
     </script>
 
 
-    <!-- ======================== LISTA DESEJO AJAX ========================  -->
-    <script type="text/javascript">
-        function addToWishList(product_id) {
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: "/add-to-wishlist/" + product_id,
-
-                success: function(data) {
-
-                    // Toaster msg 
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    if ($.isEmptyObject(data.error)) {
-                        Toast.fire({
-                            type: 'success',
-                            icon: 'success',
-                            title: data.success
-                        })
-                    } else {
-                        Toast.fire({
-                            type: 'error',
-                            icon: 'error',
-                            title: data.error
-                        })
-                    }
-
-                }
-            })
-        }
-    </script>
-
-    <!-- JS Ajax p/  'baixar' Item na Lista de Desejos view page -->
-    <script type="text/javascript">
-        function wishlist() {
-            $.ajax({
-                type: 'GET',
-                url: '/user/get-wishlist-product',
-                dataType: 'json',
-                success: function(response) {
-                    var rows = ""
-                    $.each(response, function(key, value) {
-                        rows +=
-                        `<tr>
-                            <td class="col-md-2"><img src="/${value.product.product_thumbnail} "alt="imga"></td>
-                                <td class="col-md-7">
-                                    <div class="product-name"><a href="#">${value.product.product_name_pt}</a></div>
-                        
-                                    <div class="price">
-                                        ${value.product.product_discount_price == null 
-                                            ? `${value.product.product_selling_price}`
-                                            : `${value.product.product_discount_price}<span>
-                                                ${value.product.product_selling_price}</span>`
-                                        }
-                                    </div>
-                                </td>
-                                    <td class="col-md-2">
-                                        <button class="btn btn-primary icon" type="button" 
-                                            title="Add Cart" data-toggle="modal" data-target="#exampleModal" 
-                                            id="${value.product_id}" onclick="productView(this.id)">
-                                            
-                                                Adicionar.
-                                               
-                                        </button>
-                                    </td>
-                                        <td class="col-md-1 close-btn">
-                                            <button type="submit" class="" id="${value.id}" 
-                                                onclick="wishlistRemove(this.id)">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
-                        </tr>`
-                    });
-
-                    $('#wishlist').html(rows);
-                }
-            })
-        }
-        wishlist();
-
-        // ajax onclick function p/ remover item lista desejo
-        function wishlistRemove(id) {
-            $.ajax({
-                type: 'GET',
-                url: '/user/wishlist-remove/' + id,
-                dataType: 'json',
-                success: function(data) {
-                    wishlist();
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    if ($.isEmptyObject(data.error)) {
-                        Toast.fire({
-                            type: 'success',
-                            icon: 'success',
-                            title: data.success
-                        })
-                    } else {
-                        Toast.fire({
-                            type: 'error',
-                            icon: 'error',
-                            title: data.error
-                        })
-                    }
-                }
-            });
-        }
-    </script>
-
-
-
     <!-- ========================  MEU CARRINHO AJAX ========================  -->
     <script type="text/javascript">
         // Função adiciona o produto sem ter que 'carregar' a página novamente -AJAX serve p/ isso...
@@ -580,9 +461,9 @@
                                 <td class="col-md-2">
                                     ${value.options.color == null
                                         ?   `<span>
-                                                                       
-                                                                       
-                                            </span>`
+                                                                                   
+                                                                                   
+                                                        </span>`
                                         :`<strong>${value.options.color}</strong>`
                                     }   
 
@@ -591,9 +472,9 @@
                                 <td class="col-md-2">
                                     ${value.options.size == null
                                         ? `<span>
-                                                                      
-                                                                       
-                                            </span>`
+                                                                                  
+                                                                                   
+                                                        </span>`
                                         :`<strong>${value.options.size} </strong>` 
                                     }           
                                 </td>
@@ -603,7 +484,7 @@
                                     ${value.qty > 1
 
                                     ?`<button type="submit" class="btn btn-danger btn-sm"id="${value.rowId}" 
-                                            onclick="mycartDecrement(this.id)">-</button>`
+                                                        onclick="mycartDecrement(this.id)">-</button>`
 
                                     :`<button type="submit" class="btn btn-danger btn-sm" disabled >-</button>`
                                     }
@@ -644,11 +525,6 @@
                     cart();
                     // Função exclui o produto e atualiza o minicart sem ter que 'carregar' a página novamente
                     miniCart();
-                    // Calcular desconto sem carregar página
-                    couponCalculation();
-                    // ids cupons, (não afeta o código, preciso trabalhar no cupon)
-                    $('#couponField').show();
-                    $('#coupon_name').val('');
 
                     const Toast = Swal.mixin({
                         toast: true,
@@ -680,14 +556,13 @@
                 url: "/cart-increment/" + rowId,
                 dataType: 'json',
                 success: function(data) {
-                    couponCalculation();
                     cart();
                     miniCart();
 
                 }
             });
 
-        } // final increment
+        }
 
         function mycartDecrement(rowId) {
             $.ajax({
@@ -695,141 +570,12 @@
                 url: "/cart-decrement/" + rowId,
                 dataType: 'json',
                 success: function(data) {
-                    couponCalculation();
                     cart();
                     miniCart();
                 }
             });
         }
     </script>
-
-    <!-- ========================  VOUCHER AJAX APLICAR ========================  -->
-    <script type="text/javascript">
-        function applyCoupon() {
-            var coupon_name = $('#coupon_name').val();
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    coupon_name: coupon_name
-                },
-                url: "{{ url('/coupon-apply') }}",
-                success: function(data) {
-                    couponCalculation();
-                    if (data.validity == true) {
-                        $('#couponField').hide();
-                    }
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    if ($.isEmptyObject(data.error)) {
-                        Toast.fire({
-                            type: 'success',
-                            icon: 'success',
-                            title: data.success
-                        })
-                    } else {
-                        Toast.fire({
-                            type: 'error',
-                            icon: 'error',
-                            title: data.error
-                        })
-                    }
-                }
-            })
-        }
-
-        function couponCalculation() {
-            $.ajax({
-                type: 'GET',
-                url: "{{ url('/coupon-calculation') }}",
-                dataType: 'json',
-                success: function(data) {
-                    if (data.total) {
-                        $('#couponCalField').html(
-                            `<tr>
-                        <th>
-                            <div class="cart-sub-total">
-                                Subtotal<span class="inner-left-md">R$ ${data.total}</span>
-                            </div>
-
-                            <div class="cart-grand-total">
-                                Total<span class="inner-left-md">R$ ${data.total}</span>
-                            </div>
-                        </th>
-                    </tr>`
-                        )
-                    } else {
-                        $('#couponCalField').html(
-                            `<tr>
-                        <th>
-                            <div class="cart-sub-total">
-                                Subtotal<span class="inner-left-md">R$ ${data.subtotal}</span>
-                            </div>
-
-                            <div class="cart-sub-total">
-                                Coupon<span class="inner-left-md">R$ ${data.coupon_name}</span>
-                                <button type="submit" onclick="couponRemove()"><i class="fa fa-times"></i></button>
-                            </div>
-
-                            <div class="cart-sub-total">
-                                Discount Amount<span class="inner-left-md">R$ ${data.discount_amount}</span>
-                            </div>
-
-                            <div class="cart-grand-total">
-                                Grand Total<span class="inner-left-md">R$ ${data.total_amount}</span>
-                            </div>
-                        </th>
-                    </tr>`
-                        )
-                    }
-                }
-            });
-        }
-        couponCalculation();
-    </script>
-
-    <!-- ========================  VOUCHER AJAX REMOVER ========================  -->
-
-    <script type="text/javascript">
-        function couponRemove() {
-            $.ajax({
-                type: 'GET',
-                url: "{{ url('/coupon-remove') }}",
-                dataType: 'json',
-                success: function(data) {
-                    couponCalculation();
-                    $('#couponField').show();
-                    $('#coupon_name').val('');
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    if ($.isEmptyObject(data.error)) {
-                        Toast.fire({
-                            type: 'success',
-                            icon: 'success',
-                            title: data.success
-                        })
-                    } else {
-                        Toast.fire({
-                            type: 'error',
-                            icon: 'error',
-                            title: data.error
-                        })
-                    }
-                }
-            });
-        }
-    </script>
-
 
 
 </body>

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Order;
 use App\Models\ShippingDistrict;
-use App\Models\ShippingDivision;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
