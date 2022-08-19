@@ -27,17 +27,8 @@ class CashController extends Controller
     public function CashOrder(Request $request)
     {
 
-        /**
-         * 
-         * PROJETO REAL LUCAS  
-         * NÃO APRESENTAR
-         * Se existir cupom na sessão, mostrar a lógica desconto, mas, não funciona ainda
-         */
-        if (Session::has('coupon')) {
-            $total_amount = Session::get('coupon')['total_amount'];
-        } else {
-            $total_amount = round(Cart::total());
-        }
+        $total_amount = round(Cart::total());
+
 
         // INSERIR DADOS NAS DUAS TABELAS (ORDER E ORDER_ITEM)
         $order_id = Order::insertGetId([
@@ -99,11 +90,6 @@ class CashController extends Controller
                 'price' => $cart->price,
                 'created_at' => Carbon::now(),
             ]);
-        }
-
-        // Após finalizar a venda, esquecer o cupom e destruir o carrinho (esvaziar)
-        if (Session::has('coupon')) {
-            Session::forget('coupon');
         }
 
         // Destruir cartão (esvaziar) 
