@@ -36,17 +36,17 @@ class IndexController extends Controller
          * DE FUGIR DO TRABALHO ASSALARIADO...
          * 
          **/
-        $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+       // $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
 
-        $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
+       // $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
 
 
         return view('frontend.index', compact(
             'categories',
             'products',
             'brands',
-            'sliders',
-            'featured',
+           // 'sliders',
+           // 'featured',
 
         ));
     }

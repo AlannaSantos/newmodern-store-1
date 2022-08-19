@@ -28,20 +28,14 @@
                                                     quando um formulário é enviado  --}}
                                         <input type="hidden" name="id" value="{{ $category->id }}" >
 
-                                        <!-- SE QUISERMOS TRABALHAR COM IMAGEM AO INVÉS DE ÍCONE -->
-                                             {{-- POST image update
-                                            <input type="hidden" name="id" value="{{ $category->id }}">
-                                             POST method: pegar a imagem antiga
-                                            <input type="hidden" name="old_image" value="{{ $category->category_image }}"> --}}
-                                             
-
-                                        <!-- INPUT FIELD P/ CATEGORIA PTBR -->
+                                        
+                                        <!-- INPUT FIELD P/ CATEGORIA -->
                                         <div class="form-group">
                                             <h5> Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
                                                 <input type="text" name="category_name_pt" class="form-control"
                                                     value="{{ $category->category_name_pt }}">
-                                                <!-- Mostrar nome marca dinamicamente -->
+                                                <!-- Mostrar nome categoria dinamicamente -->
 
                                                 @error('category_name_pt')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -50,23 +44,7 @@
                                             </div>
 
                                         </div>
-
-
-
-                                        <!--SE QUISERMOS TRABALHAR COM IMAGEM -->
-                                        
-                                            {{-- <div class="form-group">
-                                                <h5>Imagem <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="file" name="category_image" class="form-control">
-                                                    @error('category_image')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
-                                           
-
-                                       
+                                                                                  
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-success mb-5"
                                                 value="Atualizar">

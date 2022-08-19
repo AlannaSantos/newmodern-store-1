@@ -127,14 +127,7 @@
 
 
                                             <div class="form-group">
-                                                <h5><b>
-                                                        {{-- @if (session()->get('language') == 'portuguese')
-                                                            Selecionar Cidade
-                                                        @else
-                                                            Select City
-                                                        @endif --}}
-                                                        {{-- </b> <span class="text-danger">*</span> --}}
-                                                </h5>
+
                                                 <div class="controls">
                                                     <select name="shipping_district_id" class="form-control"
                                                         required="">
@@ -316,81 +309,28 @@
                                             <br>
 
                                             <li>
-                                                <strong>Valor produto:</strong> R$ {{ $item->price }}
+                                                 Valor produto:
+                                                R$ {{ $item->price }}
                                             </li>
                                             <li>
-                                                <strong>Quantidade:</strong> {{ $item->qty }}
-                                            </li>
-
-                                            <li>
-                                                <strong>Cor:</strong> {{ $item->options->color }}
+                                                Quantidade:
+                                                {{ $item->qty }}
                                             </li>
 
                                             <li>
-                                                <strong>Tamanho:</strong> {{ $item->options->size }}
+                                                Cor:
+                                                {{ $item->options->color }}
+                                            </li>
+
+                                            <li>
+                                                Tamanho:
+                                                {{ $item->options->size }}
                                             </li>
 
                                             <hr>
                                         @endforeach
 
-
-                                        <li>
-                                            {{-- CONDIÇÃO (FUTURO): se cupom foi tilizado,autenticar pela sessão e mostrar a lógica valor final
-                                                caso contrário, seguir checkout normalmente --}}
-                                            @if (Session::has('coupon'))
-                                                <strong>
-
-                                                    Subtotal:
-
-                                                </strong>
-                                                {{ $cartTotal }}
-                                                <hr>
-
-                                                <strong>
-
-                                                    Cupom Utilizado:
-
-                                                </strong>
-                                                <!-- === PEGAR NOME CUPOM UTILIZADO NA SESSÃO === -->
-                                                {{ session()->get('coupon')['coupon_name'] }}
-
-
-                                                <strong>
-
-                                                    Desconto:
-
-                                                </strong>
-                                                <!-- === PEGAR A PERCENTAGEM DO CUPOM === -->
-                                                {{ session()->get('coupon')['discount_amount'] }}
-
-                                                <strong>
-
-                                                    Total com Desconto:
-
-                                                </strong>
-                                                <!-- === PEGAR A PERCENTAGEM DO CUPOM === -->
-                                                {{ session()->get('coupon')['total_amount'] }}
-                                                <hr>
-                                            @else
-                                                <strong>
-
-                                                    Subtotal:
-
-                                                </strong>
-                                                {{ $cartTotal }}
-                                                <br>
-
-                                                <!-- OPCIONAL: MOSTRAR TOTAL. APÓS SUBTOTAL (SÓ DESCOMENTAR) -->
-                                                <strong>
-
-                                                    Total:
-
-                                                </strong>
-                                                {{ $cartTotal }}
-                                            @endif
-
-                                        </li>
-                                    </ul>
+                                    </ul> 
                                 </div>
                             </div>
                         </div>

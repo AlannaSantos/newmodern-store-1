@@ -13,27 +13,27 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class AllUsersController extends Controller
 {
-    // Método para acessar a view page MeusPedidos do usuário autenticado protegido pelo middleware users
+    // MÉTODO PARA ACESSAR A VIEW PAGE MEUSPEDIDOS DO USUÁRIO AUTENTICADO PROTEGIDO PELO MIDDLEWARE USERS
     public function MyOrders()
     {
-        // Acessar a Models(table) Order(pedido)...
+        // Acessar a Models(table) Order(pedido-envio)...
         // pegando todos os dados do usuário autenticado e atribuindo-ps à variável $orders.
         $orders = Order::where('user_id', Auth::id())->orderBy('id', 'DESC')->get();
 
         return view('frontend.user.order.order_view', compact('orders'));
     }
 
-    // Método para acessar a view page PedidoEspecifico do usuário autenticado protegido pelo middleware users
+    // MÉTODO PARA ACESSAR A VIEW PAGE PEDIDOESPECIFICO DO USUÁRIO AUTENTICADO PROTEGIDO PELO MIDDLEWARE USERS
     public function OrderDetails($order_id)
     {
-        // Aqui retorna todos os dados Models Order (ordemPedido) com a relação tables estado, cidade e user e atribuí-os à variável $order
+        // Aqui retorna todos os dados Models Order (pedido-envio) com a relação tables estado, cidade e user e atribuí-os à variável $order
         $order = Order::with('division', 'district', 'user')->where('id', $order_id)->where('user_id', Auth::id())->first();
 
         $orderItem = OrderItem::with('product')->where('order_id', $order_id)->orderBy('id', 'DESC')->get();
         return view('frontend.user.order.order_details', compact('order', 'orderItem'));
     }
 
-    // Método p/ baixar boleto em PDF - COPIEI a mesma lógica do método PedidoEspecifico
+    // MÉTODO P/ BAIXAR BOLETO EM PDF - COPIEI A MESMA LÓGICA DO MÉTODO PEDIDOESPECIFICO
     public function InvoiceDownload($order_id)
     {
         $order = Order::with('division', 'district', 'user')->where('id', $order_id)->where('user_id', Auth::id())->first();

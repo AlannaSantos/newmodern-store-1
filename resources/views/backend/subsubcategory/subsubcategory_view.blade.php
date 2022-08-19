@@ -20,7 +20,7 @@
                                 <h3 class="box-title">Sub-Sub-Categorias <span class="badge badge-pill badge-danger">
                                         {{ count($subsubcategories) }} </span></h3>
                             </div>
-                            <!-- /.box-header -->
+
                             <div class="box-body">
                                 <div class="table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
@@ -39,8 +39,8 @@
                                             @foreach ($subsubcategories as $item)
                                                 <tr>
 
-                                                   {{-- chamar aqui o método ['category'] Criado na Models/SubCategory.php
-                                                    para mostrar o nome categoria ['category_name_pt'] dinamicamente na view subcategory  --}}
+                                                    {{-- chamar aqui o método ['category'] Criado na Models/SubCategory.php
+                                                    para mostrar o nome categoria ['category_name_pt'] dinamicamente na view subcategory --}}
                                                     <td>{{ $item['category']['category_name_pt'] }}</td>
                                                     <td>{{ $item['subcategory']['subcategory_name_pt'] }}</td>
                                                     <td>{{ $item->subsubcategory_name_pt }}</td>
@@ -66,11 +66,11 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
 
 
-                    <!--  =============== Adicionar Sub-Sub-Categorias ================ -->
+                    <!--  =============== ADICIONAR SUB-SUB-CATEGORIAS ================ -->
 
                     <div class="col-4">
 
@@ -78,7 +78,7 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">Adicionar Sub-Sub-Categoria</h3>
                             </div>
-                          
+
                             <div class="box-body">
                                 <div class="table-responsive">
 
@@ -86,7 +86,7 @@
                                     <form method="post" action="{{ route('subsubcategory.store') }}">
                                         @csrf
 
-                                        <!-- SELECT FIELD p/ CATEGORIA -->
+                                        <!-- ============= SELECT FIELD  CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Selecionar Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -109,7 +109,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- SELECT FIELD p/ SUB-CATEGORIA -->
+                                        <!-- ============= SELECT FIELD SUB-CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Selecionar Sub-Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -118,8 +118,8 @@
                                                         Sub-Categoria
                                                     </option>
 
-                                                 {{-- JavaScript AJAX Para mostrar subcategoria 
-                                                 dinamicamente no select  --}}
+                                                    {{-- JavaScript AJAX Para mostrar subcategoria 
+                                                 dinamicamente no select --}}
 
                                                 </select>
                                                 @error('subcategory_id')
@@ -129,17 +129,7 @@
                                         </div>
 
 
-                                        {{-- <div class="form-group">
-                                            <h5>Sub Sub Category <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="text" name="subsubcategory_name_pt" class="form-control">
-                                                @error('subsubcategory_name_pt')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div> --}}
-
-                                        <!-- INPUT FIELD P/ CATEGORIA PTBR -->
+                                        <!-- ============= INPUT FIELD  CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Sub-Sub-Categoria<span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -149,13 +139,13 @@
                                                 @error('subsubcategory_name_pt')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
-                                                <!-- /Mensagem de Erro -->
+
                                             </div>
 
                                         </div>
 
 
-                                        <!-- Botão adicionar formato 'success' (verde) -->
+                                        <!-- ============= BOTÃO ADICIONAR FORMATO 'SUCCESS' ============= -->
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-success mb-5"
                                                 value="Adicionar">

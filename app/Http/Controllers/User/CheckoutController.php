@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    // Método Ajax p/ pegar os dados estado/cidade do BD 
+    // MÉTODO AJAX P/ PEGAR OS DADOS ESTADO/CIDADE DO BD 
     public function DistrictGetAjax($shipping_division_id)
     {
         // Buscar os nomes em orden decrescente da table shipping_division (estado) e atribui-los à variável $shipping

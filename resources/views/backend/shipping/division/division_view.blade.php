@@ -44,42 +44,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- ==================== ADICIONAR ESTADO | NÃO SERÁ NECESSÁRIO ====================  -->
-
-                {{-- <div class="col-4">
-
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Adicionar Estado </h3>
-                        </div>
-
-                        <div class="box-body">
-                            <div class="table-responsive">
-
-                                <form method="post" action="{{ route('division.store') }}">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <h5>Estado<span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="text" name="shipping_division_name" class="form-control">
-                                            @error('shipping_division_name')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-success mb-5" value="Adicionar">
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
             </div>
         </section>
     </div>

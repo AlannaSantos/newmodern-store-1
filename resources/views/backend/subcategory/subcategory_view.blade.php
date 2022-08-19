@@ -83,7 +83,7 @@
                                     <form method="post" action="{{ route('subcategory.store') }}">
                                         @csrf
 
-                                        <!-- FIELD p/ Categoria -->
+                                        <!-- ============= FIELD P/ CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Selecionar Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -106,18 +106,8 @@
                                             </div>
                                         </div>
 
-                                         <!-- INPUT FIELD P/ CATEGORIA EN -->
-                                        {{-- <div class="form-group">
-                                            <h5>SubCategory <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="text" name="subcategory_name_en" class="form-control">
-                                                @error('subcategory_name_en')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div> --}}
 
-                                        <!-- INPUT FIELD P/ CATEGORIA PTBR -->
+                                        <!-- ============= INPUT FIELD P/ CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Sub-Categoria<span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -127,13 +117,13 @@
                                                 @error('subcategory_name_pt')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
-                                                <!-- /Mensagem de Erro -->
+                                                
                                             </div>
 
                                         </div>
 
 
-                                        <!-- Botão adicionar formato 'success' (verde) -->
+                                        <!-- ============= BOTÃO ADICIONAR FORMATO 'SUCCESS' ============= -->
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-success mb-5"
                                                 value="Adicionar">

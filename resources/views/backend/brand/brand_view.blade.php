@@ -70,20 +70,6 @@
                                     <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
                                         @csrf
 
-                                        <!-- INPUT FIELD P/ MARCA EN -->
-                                        {{-- <div class="form-group">
-                                            <h5>Brand<span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="text" name="brand_name_en" class="form-control">
-
-                                                <!-- Mensagem de Erro -->
-                                                @error('brand_name_en')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                                
-                                            </div>
-                                        </div> --}}
-
                                         <!-- INPUT FIELD P/ MARCA PTBR -->
                                         <div class="form-group">
                                             <h5>Marca<span class="text-danger">*</span></h5>

@@ -165,7 +165,7 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
 
-                                                <!-- INPUT FIELD NOME PRODUTO PORTUGUÊS -->
+                                                <!-- ============= INPUT FIELD NOME PRODUTO ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Nome Produto <span class="text-danger">*</span></h5>
@@ -184,7 +184,7 @@ e compartilhei com a equipe. --}}
 
                                             <div class="row">
 
-                                                <!-- INPUT FIELD CÓDIGO DO PRODUTO-->
+                                                <!-- ============= INPUT FIELD CÓDIGO DO PRODUTO ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Código <span class="text-danger">*</span></h5>
@@ -200,7 +200,7 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
 
-                                                <!-- INPUT FIELD QUANTIDADE PRODUTO-->
+                                                <!-- ============= INPUT FIELD QUANTIDADE PRODUTO ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Quantidade <span class="text-danger">*</span></h5>
@@ -217,7 +217,7 @@ e compartilhei com a equipe. --}}
 
                                                 </div>
 
-                                                <!-- INPUT FIELD VALOR VENDA -->
+                                                <!-- ============= INPUT FIELD VALOR VENDA ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Valor Venda <span class="text-danger">*</span></h5>
@@ -235,7 +235,7 @@ e compartilhei com a equipe. --}}
                                             </div>
 
                                             <div class="row">
-                                                <!-- INPUT FIELD INSERIR VALOR DESCONTO-->
+                                                <!-- ============= INPUT FIELD INSERIR VALOR DESCONTO =============-->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Valor Final com Desconto <span
@@ -248,7 +248,7 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
 
-                                                <!-- INSERIR COR PORTUGUÊS-->
+                                                <!-- ============= INSERIR COR ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Cor <span class="text-info">OPCIONAL</span></h5>
@@ -260,7 +260,7 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
 
-                                                <!-- TAMANHO PRODUTO PORTUGUÊS -->
+                                                <!-- ============= TAMANHO PRODUTO ============= -->
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5> Tamanho <span class="text-info">Opcional</span></h5>
@@ -276,7 +276,7 @@ e compartilhei com a equipe. --}}
 
                                             <div class="row">
 
-                                                <!-- INPUT FILE THUMBNAIL (MINIATURA)-->
+                                                <!-- ============= INPUT FILE THUMBNAIL (MINIATURA) ============= -->
                                                 <!-- JS (onChange) utilizado para mostrar a img miniatura-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -299,7 +299,7 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
 
-                                                <!-- INPUT FILE IMAGENS MULTIPLAS -->
+                                                <!-- ============= INPUT FILE IMAGENS MULTIPLAS ============= -->
                                                 <!--JS (onChange) utilizado para mostrar imagens O campo multiple="" serve para poder inserir multiplas fotos-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -321,7 +321,7 @@ e compartilhei com a equipe. --}}
 
                                             <div class="row">
 
-                                                <!-- TEXT-AREA DESCRIÇÃO CURTA PTBR -->
+                                                <!-- ============= TEXT-AREA DESCRIÇÃO CURTA ============= -->
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <h5>Descrição Curta <span class="text-danger">*</span></h5>
@@ -336,7 +336,7 @@ e compartilhei com a equipe. --}}
                                             <div class="row">
 
 
-                                                <!-- TEXT-AREA DESCRIÇÃO LONGA PTBR -->
+                                                <!-- ============= TEXT-AREA DESCRIÇÃO LONGA ============= -->
                                                 <!-- CK EDITOR FOI UTILIZADO PARA DESCRIÇÃO LONGA TIRADO DE **forms_editor.html** DO PACOTE TEMPLATE COMPRADO -->
                                                 <!-- É possível criar mais editores CK adicionando novas funções no editor.js localizado em /public/backend/pages/editor.js -->
                                                 <div class="col-md-12">
@@ -350,53 +350,6 @@ e compartilhei com a equipe. --}}
                                                     </div>
                                                 </div>
                                             </div><br>
-
-                                            <!-- ========= TRABALHO FUTURO LUCAS ========= -->
-                                            {{-- <div class="row">
-                                                <!-- CHECKBOX 1 -->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5> PROMOÇÕES (OPCIONAL) </h5>
-                                                        <div class="controls">
-                                                            <fieldset>
-
-                                                                {{-- Valor 1 significa que ao selecinar esse checkbox, o produto terá essa oferta
-                                                                    e aparecerá no campo específico no frontend cliente --}}
-
-                                            {{-- <input type="checkbox" id="checkbox_2"
-                                                                    name="product_hot_deals" value="1">
-                                                                <label for="checkbox_2">Hot Deals</label>
-                                                            </fieldset>
-                                                            <fieldset>
-                                                                <input type="checkbox" id="checkbox_3"
-                                                                    name="product_featured" value="1">
-                                                                <label for="checkbox_3">Featured/Destaque</label>
-                                                            </fieldset>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-
-                                            <!-- CHECKBOX 2 -->
-                                            {{-- <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>PROMOÇÕES (OPCIONAL) </h5>
-                                                        <div class="controls">
-                                                            <fieldset>
-                                                                {{-- Valor 1 significa que ao selecinar esse checkbox, o produto terá essa oferta
-                                                                e aparecerá no campo específico no frontend cliente --}}
-                                            {{-- <input type="checkbox" id="checkbox_4"
-                                                                    name="product_special_offer" value="1">
-                                                                <label for="checkbox_4">Especial Offer</label>
-                                                            </fieldset>
-                                                            <fieldset>
-                                                                <input type="checkbox" id="checkbox_5"
-                                                                    name="product_special_deals" value="1">
-                                                                <label for="checkbox_5">Especial Deals</label>
-                                                            </fieldset>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
 
                                             <!-- =============== BOTÃO ADICIONAR PRODUTO  ================ -->
                                             <div class="text-xs-right">

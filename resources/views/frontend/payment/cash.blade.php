@@ -38,40 +38,22 @@ AMBOS TIRADOS DA DOCUMENTAÇÃO API. --}}
                                     </h4>
                                 </div>
 
-                                <div class="">
+                                <!-- ========= MOSTRAR SUBTOTAL/TOTAL ========= -->
+                                <ul class="nav nav-checkout-progress list-unstyled">
 
-                                    <!-- ========= LÓGICA CUPOM | TRABALHO REAL LUCAS | AINDA NÃO FUNCIONA ========= -->
-                                    <ul class="nav nav-checkout-progress list-unstyled">
+                                    <hr>
+                                    <li>
 
+                                        <strong>Subtotal : </strong> ${{ $cartTotal }}
                                         <hr>
-                                        <li>
-                                            @if (Session::has('coupon'))
-                                                <strong>Subtotal : </strong> ${{ $cartTotal }}
-                                                <hr>
 
-                                                <strong>Nome : </strong>
-                                                {{ session()->get('coupon')['coupon_name'] }}
-                                                ( {{ session()->get('coupon')['coupon_discount'] }} % )
-                                                <hr>
+                                        <strong>Total : </strong> ${{ $cartTotal }}
+                                        <hr>
 
-                                                <strong>Desconto : </strong>
-                                                ${{ session()->get('coupon')['discount_amount'] }}
-                                                <hr>
 
-                                                <strong>Total : </strong>
-                                                ${{ session()->get('coupon')['total_amount'] }}
-                                                <hr>
-                                            @else
-                                                <strong>Subtotal : </strong> ${{ $cartTotal }}
-                                                <hr>
+                                    </li>
+                                </ul>
 
-                                                <strong>Total : </strong> ${{ $cartTotal }}
-                                                <hr>
-                                            @endif
-
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>

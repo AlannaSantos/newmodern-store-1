@@ -9,18 +9,14 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ShippingController;
-use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\SupplierController;
 
 use App\Http\Controllers\Frontend\IndexController;
-use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 
 
 use App\Http\Controllers\User\AllUsersController;
-use App\Http\Controllers\User\WishListController;
 use App\Http\Controllers\User\MyCartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
@@ -268,49 +264,13 @@ Route::prefix('stock')->group(function () {
 
 
 
-# ==================== TODAS AS ROTAS SLIDER PAINEL ADMIN | PROJETO REAL LUCAS ========================= #
-
-/*** prefix siginica que aparecerá o objeto na url antes da rota chamada: (brand/view ; brand/store; slider/view ...) */
-Route::prefix('slider')->group(function () {
-
-    // Rota p/ visualizar a tabela de Marcas no Painel Admin.
-    Route::get('/view', [SliderController::class, 'SliderView'])->name('all.sliders');
-
-    // Rota p/ guardar informações Marcas no Painel Admin
-    Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
-
-    // Rota p/ editar Marca
-    Route::get('/edit{id}', [SliderController::class, 'SliderEdit'])->name('slider.edit');
-
-    // Rota p/ guardar inforções EDITADAS Marcas no Painel Admin
-    Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.update');
-
-    // Rota p/ deletar Marca
-    Route::get('/delete{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
-
-    // Rota p/ inativar produto no painel admin edit product
-    Route::get('/inactivate/{id}', [SliderController::class, 'InactivateSlider'])->name('slider.inactivate');
-
-    // Rota p/ ativar produto no painel admin edit product
-    Route::get('/activate/{id}', [SliderController::class, 'ActivateSlider'])->name('slider.activate');
-});
-
-
 
 
 # =================================== TODAS AS ROTAS FRONT-END ========================================= #
 
-// Rota tradução português | PROJETO REAL LUCAS
-Route::get('/language/portuguese', [LanguageController::class, 'Portuguese'])->name('portuguese.language');
-
-// Rota tradução inglês PROJETO REAL LUCAS
-Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
 
 // Rota p/ detalhes do produto - como usei url, não é necessário nomear a rota
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
-
-// Rota tags - como usei url, não é necessário nomear a rota | PROJETO REAL LUCAS
-Route::get('/product/tag/{tag}', [IndexController::class, 'ProductTags']);
 
 // Rota p/ detalhes do produto ao clickar em sua subsubcategoria - como usei url, não é necessário nomear a rota
 Route::get('/subcategory/product/{id}/{slug}', [IndexController::class, 'ProductSubDetails']);
@@ -338,30 +298,15 @@ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMi
 
 
 
-# ======================= TODAS AS ROTAS LISTA ITEM DESEJO | PROJETO REAL LUCAS ======================== #
-
-// Rota AJAX p/ pegar os dados Produto pela função onclick() Ajax e enviar à Lista de Desejos | PROJETO REAL LUCAS
-Route::post('/add-to-wishlist/{product_id}', [CartController::class, 'AddToWishList']);
-
-
-
-# ================ PROTEGER AS PÁGINAS VIEWS WISHLIST,PAGAMENTOS,PEDIDOS COM MIDDLEWARE ================ #
+# ================ PROTEGER AS PÁGINAS VIEWS: PAGAMENTOS e PEDIDOS COM MIDDLEWARE ================ #
 
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'User'], function () {
 
-    // Rota p/ acessar a página view Lista de Desejos | PROJETO REAL LUCAS
-    Route::get('/wishlist', [WishListController::class, 'ViewWishList'])->name('wishlist');
-
-    // Rota AJAX, p/ pegar o produto adicionado la lista de desejos e mostrar na view lista desejos | PROJETO REAL LUCAS
-    Route::get('/get-wishlist-product', [WishListController::class, 'GetWishListProduct']);
-
-    // ROTA AJAX Remover dados lista des. - como usei url, não é necessário nomear a rota | PROJETO REAL LUCAS
-    Route::get('/wishlist-remove/{id}', [WishListController::class, 'RemoveWishListProduct']);
 
     // Rota Pagamento via API Stripe | PROJETO REAL LUCAS ;| NÃO APRESENTAR ISSO
     Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 
-    // Rota Pagamento via API Stripe | PROJETO REAL LUCAS ;| NÃO APRESENTAR ISSO
+    // Rota Pagamento via ESPÉCIE
     Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');
 
     // Rota p/ acessar view page meus pedidos (pedido de usuário autenticado)
@@ -435,49 +380,6 @@ Route::prefix('shipping')->group(function () {
     // Rota p/ excluir Cidade Envio
     Route::get('/district/delete/{id}', [ShippingController::class, 'ShippingDistrictDelete'])->name('district.delete');
 });
-
-
-
-# ======================== TODAS AS ROTAS CUPOM ADMIN | PROJETO REAL LUCAS  ============================= #
-
-/*** prefix siginica que aparecerá o objeto na url antes da rota chamada: (coupons/view ; coupons/store...) */
-Route::prefix('coupons')->group(function () {
-
-    // Rota p/ visualizar a tabela de Marcas no Painel Admin.
-    Route::get('/view', [CouponController::class, 'CouponView'])->name('coupons.manage');
-
-    // Rota p/ guardar os vouchers/cupons adicionados pelo admin no painel
-    Route::post('/store', [CouponController::class, 'CouponStore'])->name('coupon.store');
-
-    // Rota p/ editar os dados voucher/cupom
-    Route::get('/edit/{id}', [CouponController::class, 'CouponEdit'])->name('coupon.edit');
-
-    // Rota p/ guardar os dados editados voucher/cupom
-    Route::post('/update/{id}', [CouponController::class, 'CouponUpdate'])->name('coupon.update');
-
-    // Rota p/ excluir os vouchers/cupons
-    Route::get('/delete/{id}', [CouponController::class, 'CouponDelete'])->name('coupon.delete');
-
-    // Rota p/ inativar vouchers/cupons no painel admin edit product
-    Route::get('/inactivate/{id}', [CouponController::class, 'InactivateCoupon'])->name('coupon.inactivate');
-
-    // Rota p/ ativar vouchers/cupons no painel admin edit product
-    Route::get('/activate/{id}', [CouponController::class, 'ActivateCoupon'])->name('coupon.activate');
-});
-
-
-
-# ================== IMPLEMENTAÇÃO FUTURO - PROJETO REAL | TODAS AS ROTAS CUPOM AJAX  ================== #
-
-// Rota AJAX p/ aplicar cupom
-Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
-
-// Rota AJAX p/ calcular desconto cupom
-Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
-
-// Rota AJAX p/ calcular desconto cupom
-Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
-
 
 
 # ======================================= TODAS AS ROTAS CHECKOUT ======================================= #

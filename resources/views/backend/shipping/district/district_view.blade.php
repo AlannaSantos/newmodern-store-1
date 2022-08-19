@@ -47,57 +47,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- =================== ADICIONAR CIDADE | NÃO SERÁ NECESSÁRIO =====================  -->
-                {{-- <div class="col-4">
-
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Adicionar Cidade </h3>
-                        </div>
-
-                        <div class="box-body">
-                            <div class="table-responsive">
-
-                                <form method="post" action="{{ route('district.store') }}">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <h5> Selecionar Estado <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <select name="shipping_division_id" class="form-control">
-                                                <option value="" selected="" disabled="">Selecionar Estado
-                                                </option>
-                                                @foreach ($divisions as $div)
-                                                    <option value="{{ $div->id }}">{{ $div->shipping_division_name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @error('shipping_division_id')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <h5> Cidade <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="text" name="shipping_district_name" class="form-control">
-                                            @error('shipping_district_name')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-success mb-5" value="Adicionar">
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </section>
     </div>

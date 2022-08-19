@@ -1,27 +1,9 @@
 <header class="header-style-1">
-    <!-- ============================================== TOP MENU ============================================== -->
     <div class="top-bar animate-dropdown">
         <div class="container">
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        {{-- <li><a href="#"><i class="icon fa fa-user"></i>
-
-                                Minha Conta
-
-                            </a></li> --}}
-
-                        <!-- ================ PROJETO FUTURO WISHLIST ==================== -->
-                        {{-- <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>
-                                <!-- CONDIÇÃO: verificar a sessão do usuário, se for portugues, mostrar a opção inglês, se for inglês, mostrar opção português -->
-                                @if (session()->get('language') == 'portuguese')
-                                    Lista de Desejos
-                                @else
-                                    Wishlist
-                                @endif
-                            </a>
-                        </li> --}}
-                        <!-- ================ PROJETO FUTURO WISHLIST ==================== -->
 
                         <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>
 
@@ -61,17 +43,15 @@
         </div>
     </div>
 
-    <!-- ============================================== TOP MENU : END ============================================== -->
     <div class="main-header">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
-
                     <!-- ============================================================= LOGO ============================================================= -->
-
-                    <div class="logo"> <a href="{{ url('/') }}"> <img
-                                src="{{ asset('frontend/assets/images/logo-header-edit.png') }}" alt="logo"> </a>
-
+                    <div class="logo">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset('frontend/assets/images/logo-header-edit.png') }}" alt="logo">
+                        </a>
                     </div>
 
                 </div>
@@ -185,7 +165,7 @@
 
                                                         @foreach ($subcategories as $subcategory)
                                                             <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                                                                <!-- CONDIÇÃO IF ELSE: se a sessão for em ptbr, mostrar nome ptbr caso contrário, mostrar inglês -->
+
                                                                 <a
                                                                     href="{{ url('subcategory/product/' . $subcategory->id . '/' . $subcategory->subcategory_slug_pt) }}">
                                                                     <h2 class="title">
@@ -206,7 +186,6 @@
                                                                 @endphp
 
                                                                 @foreach ($subsubcategories as $subsubcategory)
-                                                                    <!-- CONDIÇÃO IF ELSE: se a sessão for em ptbr, mostrar nome ptbr caso contrário, mostrar inglês -->
                                                                     <ul class="links">
                                                                         <li><a
                                                                                 href="{{ url('subsubcategory/product/' . $subsubcategory->id . '/' . $subsubcategory->subsubcategory_slug_pt) }}">
@@ -222,7 +201,7 @@
                                                         @endforeach
 
 
-
+                                                        <!-- ========== IMAGEM LOGO DROPDOWN CATEGORIA ========== -->
                                                         <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
                                                             <img class="img-responsive"
                                                                 src="{{ asset('frontend/assets/images/logo.png') }}"
@@ -236,13 +215,6 @@
                                     </li>
                                 @endforeach
 
-                                {{-- <li class="dropdown  navbar-right special-menu"> <a href="#">
-
-                                        Oferta do
-                                        dia
-
-                                    </a>
-                                </li> --}}
                             </ul>
 
                             <div class="clearfix"></div>

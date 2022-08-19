@@ -9,23 +9,20 @@ use App\Mail\OrderMail; // PROJETO REAL LUCAS - NÃO FOI DEFINIDO NA DOCUMENTAÇ
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\ShippingDistrict;
-use App\Models\ShippingDivision;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail; // PROJETO REAL LUCAS - NÃO FOI DEFINIDO NA DOCUMENTAÇÃO.
 
 class CashController extends Controller
 {
-
+    // MÉTODO PAGAMENTO EM ESPÉCIE
     public function CashOrder(Request $request)
     {
-
+        // utilizando funcão do pacote carrinho, pegeui o total carrinho arredindado e atribuí á variável $total_amount
         $total_amount = round(Cart::total());
 
 
-        // INSERIR DADOS NAS DUAS TABELAS (ORDER E ORDER_ITEM)
+        // inserir dados nas duas tabelas (order e order_item)
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
             'name' => $request->name,
@@ -47,7 +44,7 @@ class CashController extends Controller
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
             'order_year' => Carbon::now()->format('Y'),
-            'status' => 'Pending',
+            'status' => 'Pendente',
             'created_at' => Carbon::now(),
         ]);
 

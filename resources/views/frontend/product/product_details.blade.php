@@ -26,16 +26,7 @@
 
                 <div class="sidebar-module-container">
 
-                    <!-- ============ BANNER ============ -->
-                    {{-- <div class="home-banner outer-top-n">
-                        <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image">
-                    </div> --}}
-
-
-
-                    <!-- ============================================== HOT DEALS FRAGMENT ============================================== -->
-
-                    {{-- @include('frontend.fragments.hot_deals') --}}
+                    {{-- PLACE HOLDER --}}
 
                 </div>
             </div>
@@ -95,19 +86,6 @@
 
                                 </h1>
 
-                                <!-- ================ AVALIAÇÃO AQUI =================-->
-                                {{-- <div class="rating-reviews m-t-20">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="rating rateit-small"></div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="reviews">
-                                                <a href="#" class="lnk">(13 Reviews)</a>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.row -->
-                                </div> --}}
 
                                 <!-- ================ DISPONIBILIDADE AQUI =================-->
                                 <div class="stock-container info-container m-t-10">
@@ -156,25 +134,6 @@
 
                                             </div>
                                         </div>
-
-                                        <!-- ================ BOTÃO WISHLIST AQUI =================-->
-                                        {{-- <div class="col-sm-6">
-                                            <div class="favorite-button m-t-10">
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
-                                                    title="Wishlist" href="#">
-                                                    <i class="fa fa-heart"></i>
-                                                </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
-                                                    title="Add to Compare" href="#">
-                                                    <i class="fa fa-signal"></i>
-                                                </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
-                                                    title="E-mail" href="#">
-                                                    <i class="fa fa-envelope"></i>
-                                                </a>
-                                            </div>
-                                        </div> --}}
-
                                     </div>
                                 </div>
 
@@ -192,8 +151,9 @@
                                                     <span>*</span>
                                                 </label>
                                                 <select class="form-control unicase-form-control selectpicker"
-                                                    id="color" >
-                                                    <option selected="" disabled="" required=""> Escolher Cor </option>
+                                                    id="color">
+                                                    <option selected="" disabled="" required=""> Escolher Cor
+                                                    </option>
 
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
@@ -222,8 +182,9 @@
                                                     Tamanho<span></span></label>
 
                                                 <select class="form-control unicase-form-control selectpicker"
-                                                    id="size" >
-                                                    <option selected="" disabled="" required="">Escolher Tamanho</option>
+                                                    id="size">
+                                                    <option selected="" disabled="" required="">Escolher
+                                                        Tamanho</option>
 
                                                     {{-- função ucwords() padroniza palvras, assim o mantendeor 
                                                     não precisa se procupar em digitar Maniusculas ou Minusculas --}}
@@ -261,13 +222,15 @@
                                                             <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                                                         </div> --}}
 
-                                                          <input type="text" id="qty" value="1" min="1">
+                                                        <input type="text" id="qty" value="1"
+                                                            min="1">
 
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
+                                            <input type="hidden" id="product_id" value="{{ $product->id }}"
+                                                min="1">
 
 
                                             <div class="col-sm-7">
@@ -291,14 +254,6 @@
 
                     <div class="product-tabs inner-bottom-xs  wow fadeInUp">
                         <div class="row">
-                            <!-- ================ REVIEWS PRODUTO =================-->
-                            {{-- <div class="col-sm-3">
-                                <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
-                                    <li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-                                    <li><a data-toggle="tab" href="#review">REVIEW</a></li>
-                                    <li><a data-toggle="tab" href="#tags">TAGS</a></li>
-                                </ul>
-                            </div> --}}
 
                             <div class="col-sm-9">
 
@@ -315,285 +270,10 @@
                                             </p>
                                         </div>
                                     </div>
-
-                                    <!-- ========== AVALIAÇÕES ========= -->
-                                    {{-- <div id="review" class="tab-pane">
-                                        <div class="product-tab">
-
-                                            <div class="product-reviews">
-                                                <h4 class="title">Customer Reviews</h4>
-
-                                                <div class="reviews">
-                                                    <div class="review">
-                                                        <div class="review-title"><span class="summary">We love this
-                                                                product</span><span class="date"><i
-                                                                    class="fa fa-calendar"></i><span>1 days
-                                                                    ago</span></span></div>
-                                                        <div class="text">"Lorem ipsum dolor sit amet, consectetur
-                                                            adipiscing elit.Aliquam suscipit."</div>
-                                                    </div>
-
-                                                </div><!-- /.reviews -->
-                                            </div><!-- /.product-reviews -->
-
-
-
-                                            <div class="product-add-review">
-                                                <h4 class="title">Write your own review</h4>
-                                                <div class="review-table">
-                                                    <div class="table-responsive">
-                                                        <table class="table">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="cell-label">&nbsp;</th>
-                                                                    <th>1 star</th>
-                                                                    <th>2 stars</th>
-                                                                    <th>3 stars</th>
-                                                                    <th>4 stars</th>
-                                                                    <th>5 stars</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="cell-label">Quality</td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="1"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="2"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="3"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="4"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="5"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="cell-label">Price</td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="1"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="2"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="3"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="4"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="5"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="cell-label">Value</td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="1"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="2"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="3"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="4"></td>
-                                                                    <td><input type="radio" name="quality"
-                                                                            class="radio" value="5"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table><!-- /.table .table-bordered -->
-                                                    </div><!-- /.table-responsive -->
-                                                </div><!-- /.review-table -->
-
-                                                <div class="review-form">
-                                                    <div class="form-container">
-                                                        <form role="form" class="cnt-form">
-
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputName">Your Name <span
-                                                                                class="astk">*</span></label>
-                                                                        <input type="text" class="form-control txt"
-                                                                            id="exampleInputName" placeholder="">
-                                                                    </div><!-- /.form-group -->
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputSummary">Summary <span
-                                                                                class="astk">*</span></label>
-                                                                        <input type="text" class="form-control txt"
-                                                                            id="exampleInputSummary" placeholder="">
-                                                                    </div><!-- /.form-group -->
-                                                                </div>
-
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputReview">Review <span
-                                                                                class="astk">*</span></label>
-                                                                        <textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder=""></textarea>
-                                                                    </div><!-- /.form-group -->
-                                                                </div>
-                                                            </div><!-- /.row -->
-
-                                                            <div class="action text-right">
-                                                                <button class="btn btn-primary btn-upper">SUBMIT
-                                                                    REVIEW</button>
-                                                            </div><!-- /.action -->
-
-                                                        </form><!-- /.cnt-form -->
-                                                    </div><!-- /.form-container -->
-                                                </div><!-- /.review-form -->
-
-                                            </div><!-- /.product-add-review -->
-
-                                        </div><!-- /.product-tab -->
-                                    </div> --}}
-
-                                    <!-- ========== TAGS ========= -->
-                                    {{-- <div id="tags" class="tab-pane">
-                                        <div class="product-tag">
-
-                                            <h4 class="title">Product Tags</h4>
-                                            <form role="form" class="form-inline form-cnt">
-                                                <div class="form-container">
-
-                                                    <div class="form-group">
-                                                        <label for="exampleInputTag">Add Your Tags: </label>
-                                                        <input type="email" id="exampleInputTag"
-                                                            class="form-control txt">
-
-
-                                                    </div>
-
-                                                    <button class="btn btn-upper btn-primary" type="submit">ADD
-                                                        TAGS</button>
-                                                </div><!-- /.form-container -->
-                                            </form><!-- /.form-cnt -->
-
-                                            <form role="form" class="form-inline form-cnt">
-                                                <div class="form-group">
-                                                    <label>&nbsp;</label>
-                                                    <span class="text col-md-offset-3">Use spaces to separate tags. Use
-                                                        single quotes (') for phrases.</span>
-                                                </div>
-                                            </form><!-- /.form-cnt -->
-
-                                        </div><!-- /.product-tab -->
-                                    </div> --}}
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- ============================================== PRODUTOS RELACIONADOS ============================================== -->
-                    {{-- <section class="section featured-product wow fadeInUp">
-                        <h3 class="section-title">
-
-                            Produtos Relacionados
-
-                        </h3>
-                        <div
-                            class="owl-carousel home-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs">
-
-                            @foreach ($related as $product)
-                                <div class="item item-carousel">
-                                    <div class="products">
-                                        <div class="product">
-                                            <div class="product-image">
-                                                <div class="image">
-                                                    <!-- url para redirecionar para pagina detalhes produto ao clickar na imagem -->
-                                                    <a
-                                                        href="{{ url('product/details/' . $product->id . '/' . $product->product_slug_pt) }}">
-                                                        <!-- mostrar miniatura produto dinamicamente em 'novos produtos' -->
-                                                        <img src="{{ asset($product->product_thumbnail) }}"
-                                                            alt="">
-                                                    </a>
-                                                </div>
-
-
-                                                <!-- Lógica porcentagem -->
-                                                @php
-                                                    $discount = $product->product_selling_price - $product->product_discount_price;
-                                                    $percentage = ($discount / $product->product_selling_price) * 100;
-                                                @endphp
-
-                                                <div>
-                                                    <!-- Lógica: se não houver desconto, aparecer a a tag new...-->
-                                                    @if ($product->product_discount_price == null)
-                                                        <div class="tag new"><span>
-
-                                                                NOVO
-
-                                                            </span></div>
-                                                    @else
-                                                        <!-- caso contrário, mostrar a porcentagem de desconto -->
-                                                        <div class="tag hot">
-                                                            <span>{{ round($percentage) }} %</span>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-
-
-                                            <div class="product-info text-left">
-                                                <h3 class="name">
-                                                    <!-- url para redirecionar para pagina detalhes produto ao clickar no nome produto -->
-                                                    <a
-                                                        href="{{ url('product/details/' . $product->id . '/' . $product->product_slug_pt) }}">
-
-                                                        {{ $product->product_name_pt }}
-
-                                                    </a>
-                                                </h3>
-                                                <div class="rating rateit-small"></div>
-                                                <div class="description"></div>
-
-                                                <!--== LÓGICA P/ MOSTRAR VALOR PRODUTO DINAMICAMENTE ==-->
-
-                                                <!-- Lógica: se não houver desconto, aparecer o valor normal (product_selling_price)...-->
-                                                @if ($product->product_discount_price == null)
-                                                    <div class="product-price"> <span class="price">
-                                                            {{ $product->product_selling_price }}
-                                                        </span>
-                                                    </div>
-                                                @else
-                                                    <!-- caso contrário, mostrar valor com o desconto -->
-                                                    <div class="product-price"> <span class="price">
-                                                            {{ $product->product_discount_price }}
-                                                        </span><span class="price-before-discount">
-                                                            {{ $product->product_selling_price }}
-                                                        </span>
-                                                    </div>
-                                                @endif
-
-                                            </div>
-
-                                            <div class="cart clearfix animate-effect">
-                                                <div class="action">
-                                                    <ul class="list-unstyled">
-                                                        <li class="add-cart-button btn-group">
-                                                            <button data-toggle="tooltip" class="btn btn-primary icon"
-                                                                type="button" title="Add Cart"> <i
-                                                                    class="fa fa-shopping-cart"></i>
-                                                            </button>
-                                                            <button class="btn btn-primary cart-btn"
-                                                                type="button">Add to
-                                                                cart</button>
-                                                        </li>
-                                                        <li class="lnk wishlist"> <a data-toggle="tooltip"
-                                                                class="add-to-cart" href="detail.html"
-                                                                title="Wishlist">
-                                                                <i class="icon fa fa-heart"></i>
-                                                            </a> </li>
-                                                        <li class="lnk"> <a data-toggle="tooltip"
-                                                                class="add-to-cart" href="detail.html"
-                                                                title="Compare"> <i class="fa fa-signal"
-                                                                    aria-hidden="true"></i> </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </section> --}}
-
-                    <!-- ==============================================  PRODUTOS RELACIONADO FINAL ============================================== -->
                 </div>
             </div>
             <div class="clearfix"></div>

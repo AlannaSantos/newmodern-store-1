@@ -10,7 +10,7 @@
             <section class="content">
                 <div class="row">
 
-                    <!--  =============== Adicionar Sub-Sub-Categorias ================ -->
+                    <!--  =============== ADICIONAR SUB-SUB-CATEGORIAS ================ -->
 
                     <!-- "col-12" deixa classe larga; abrange a página inteira -->
                     <div class="col-12">
@@ -31,7 +31,7 @@
                                         quando um formulário é enviado --}}
                                         <input type="hidden" name="id" value="{{ $subsubcategories->id }}">
 
-                                        <!-- SELECT FIELD p/ CATEGORIA -->
+                                        <!-- ============= SELECT FIELD CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Selecionar Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -42,9 +42,10 @@
 
                                                     <!-- Mostrar os dados da variável $categories na condição foreach (nome categoria em inglês) -->
                                                     @foreach ($categories as $category)
-                                                        <!--  CONDIÇÃO p/ mostrar os dados, passa-se a coluna category e o id da mesma:
+
+                                                         {{-- CONDIÇÃO p/ mostrar os dados, passa-se a coluna category e o id da mesma:
                                                             quando os IDs combinarem, a fk_id category com a id subcategory, então
-                                                            retorna os valores solicitados, caso contrário, retorna nulo -->
+                                                            retorna os valores solicitados, caso contrário, retorna nulo  --}}
                                                         <option value="{{ $category->id }}"
                                                             {{ $category->id == $subsubcategories->category_id ? 'selected' : '' }}>
 
@@ -58,7 +59,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- SELECT FIELD p/ SUB-CATEGORIA -->
+                                        <!-- ============= SELECT FIELD SUB-CATEGORIA ============= -->
                                         <div class="form-group">
                                             <h5>Selecionar Sub-Categoria <span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -69,9 +70,10 @@
 
                                                     <!-- Mostrar os dados da variável $categories na condição foreach (nome categoria em inglês) -->
                                                     @foreach ($subcategories as $subcategory)
-                                                        <!--  CONDIÇÃO p/ mostrar os dados, passa-se a coluna category e o id da mesma:
+
+                                                          {{-- CONDIÇÃO p/ mostrar os dados, passa-se a coluna category e o id da mesma:
                                                             quando os IDs combinarem, a fk_id category com a id subcategory, então
-                                                            retorna os valores solicitados, caso contrário, retorna nulo -->
+                                                            retorna os valores solicitados, caso contrário, retorna nulo  --}}
                                                         <option value="{{ $subcategory->id }}"
                                                             {{ $subcategory->id == $subsubcategories->subcategory_id ? 'selected' : '' }}>
 
@@ -85,24 +87,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- INPUT FIELD P/ SUB-CATEGORIA EN -->
-                                        {{-- <div class="form-group">
-                                            <h5>SubSubCategory <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-
-                                                <!-- campo value="" serve p/ mostrar dinamicamente os valores da subcategoria,(name_en ou name_ptbr) -->
-                                                <input type="text" name="subsubcategory_name_en" class="form-control"
-                                                    value="{{ $subsubcategories->subsubcategory_name_en }}">
-
-                                                <!-- Mensagem de Erro -->
-                                                @error('subsubcategory_name_en')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                                <!-- /Mensagem de Erro -->
-                                            </div>
-                                        </div> --}}
-
-                                        <!-- INPUT FIELD P/ SUB-CATEGORIA PTBR -->
+                                        <!-- ============= INPUT FIELD SUB-CATEGORIA PTBR ============= -->
                                         <div class="form-group">
                                             <h5>Sub-Sub-Categoria<span class="text-danger">*</span></h5>
                                             <div class="controls">
@@ -115,11 +100,11 @@
                                                 @error('subsubcategory_name_pt')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
-                                                <!-- /Mensagem de Erro -->
+                                               
                                             </div>
                                         </div>
 
-                                        <!-- Botão adicionar formato 'success' (verde) -->
+                                        <!-- BOTÃO ADICIONAR FORMATO 'SUCCESS' -->
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-success mb-5"
                                                 value="Confirmar">
