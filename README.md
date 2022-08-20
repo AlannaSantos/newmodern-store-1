@@ -287,6 +287,15 @@ php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServi
 - Seed para Laravel com Estados e Cidades com o código do IBGE
 - 26 Estados e 5.565 Cidades, todos com o código do IBGE
 
+- *seed* newmodern-bd:
+```
+php artisan db:seed --class=ShippingDivisionTableSeeder
+```
+```
+php artisan db:seed --class=ShippingDistrictTableSeeder
+```
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 <p align="center"><img src="public/repository-images/stripe.png" width="400" height="200"></p>
 
