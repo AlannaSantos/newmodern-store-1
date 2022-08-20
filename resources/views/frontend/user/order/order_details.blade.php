@@ -263,21 +263,6 @@
                                                             </label>
                                                         </td>
 
-                                                        {{-- <td class="col-md-3">
-                                                                <label for="">
-                                                                    @if (session()->get('language') == 'portuguese')
-                                                                        Telefone
-                                                                    @else
-                                                                        Phone
-                                                                    @endif
-                                                                </label>
-                                                            </td>
-
-                                                            <td class="col-md-3">
-                                                                <label for="">
-                                                                    Email
-                                                                </label>
-                                                            </td> --}}
 
                                                         <td class="col-md-2">
                                                             <label for="">
@@ -285,16 +270,6 @@
 
                                                             </label>
                                                         </td>
-
-                                                        {{-- <td class="col-md-2">
-                                                                <label for="">
-                                                                    @if (session()->get('language') == 'portuguese')
-                                                                        Numero Transação
-                                                                    @else
-                                                                        Transaction Id
-                                                                    @endif
-                                                                </label>
-                                                            </td> --}}
 
                                                         <td class="col-md-2">
                                                             <label for="">
@@ -324,23 +299,10 @@
                                                             <label for=""> {{ $order->user->name }} </label>
                                                         </td>
 
-                                                        {{-- <td class="col-md-3">
-                                                                <label for=""> {{ $order->user->phone }}</label>
-                                                            </td>
-
-                                                            <td class="col-md-3">
-                                                                <label for=""> {{ $order->user->email }}</label>
-                                                            </td> --}}
-
                                                         <td class="col-md-3">
                                                             <label for="">
                                                                 {{ $order->payment_method }}</label>
                                                         </td>
-
-                                                        {{-- <td class="col-md-2">
-                                                                <label for="">
-                                                                    {{ $order->transaction_id }}</label>
-                                                            </td> --}}
 
                                                         <td class="col-md-2">
                                                             <label for="">{{ $order->invoice_no }}</label>

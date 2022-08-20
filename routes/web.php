@@ -19,7 +19,6 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\AllUsersController;
 use App\Http\Controllers\User\MyCartController;
 use App\Http\Controllers\User\CheckoutController;
-use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\CashController;
 
 
@@ -302,9 +301,6 @@ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMi
 
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'User'], function () {
 
-
-    // Rota Pagamento via API Stripe | PROJETO REAL LUCAS ;| NÃO APRESENTAR ISSO
-    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 
     // Rota Pagamento via ESPÉCIE
     Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');
