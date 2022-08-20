@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('product_slug_pt'); 
             $table->string('product_code')->nullable();
             $table->string('product_qty')->nullable();
-         //   $table->string('product_tags_pt')->nullable(); //projeto futuro lucas
             $table->string('product_size_pt')->nullable(); 
             $table->string('product_color_pt')->nullable(); 
             $table->string('product_selling_price');

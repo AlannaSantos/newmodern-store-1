@@ -68,12 +68,6 @@ class ProductController extends Controller
             'product_short_description_pt' => $request->product_short_description_pt,
             'product_long_description_pt' => $request->product_long_description_pt,
 
-            // Implementação Futura (projeto real)
-            'product_hot_deals' => $request->product_hot_deals,
-            'product_featured' => $request->product_featured,
-            'product_special_deals' => $request->product_special_deals,
-            'product_hot_deals' => $request->product_hot_deals,
-
             'product_thumbnail' => $save_url,
             'product_status' => 1,
             'created_at' => Carbon::now(), // Carbon = extensão DateTime
@@ -175,12 +169,6 @@ class ProductController extends Controller
             'product_discount_price' => $request->product_discount_price,
             'product_short_description_pt' => $request->product_short_description_pt,
             'product_long_description_pt' => $request->product_long_description_pt,
-
-            // Segmentanção front-end | projeto futuro lucas
-            'product_hot_deals' => $request->product_hot_deals,
-            'product_featured' => $request->product_featured,
-            'product_special_deals' => $request->product_special_deals,
-            'product_special_offer' => $request->product_special_offer,
 
             'product_status' => 0,
             'created_at' => Carbon::now(),

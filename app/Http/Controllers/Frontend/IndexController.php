@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Images;
-use App\Models\Slider;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,25 +28,11 @@ class IndexController extends Controller
         $brands = Brand::orderBy('id', 'ASC')->get();
 
 
-        /**
-         * AQUI FAZ PARTE DO MEU PROJETO PESSOAL...
-         * NÃO FOI DEFINIDO NA DOCUMENTAÇÃO E NÃO DEVE SER COBRADO NA APRESENTAÇAO
-         * TRATA-SE DE UM PROJETO REAL ONDE VENDEREI PRODUTOS REAIS NA ESPERANÇA
-         * DE FUGIR DO TRABALHO ASSALARIADO...
-         * 
-         **/
-       // $sliders = Slider::where('slider_status', 1)->orderBy('id', 'DESC')->limit(3)->get();
-
-       // $featured = Product::where('product_featured', 1)->orderBy('id', 'DESC')->get();
-
-
         return view('frontend.index', compact(
             'categories',
             'products',
             'brands',
-           // 'sliders',
-           // 'featured',
-
+        
         ));
     }
 
@@ -101,13 +86,14 @@ class IndexController extends Controller
             'alert-type' => 'success'
         );
 
+        // Após trocar a foto via unlink e guardar foro nova, retornar para o perfil usuario com notificação
         return redirect()->route('user.profile')->with($notification);
     }
 
     // MÉTODO PARA ATUALIZAR SENHA USUARIO
     public function UserChangePassword()
     {
-
+        // Apenas retorna a view
         return view('frontend.profile.change_password');
     }
 

@@ -36,7 +36,6 @@ class CashController extends Controller
             'postal_code' => $request->postal_code,
             'notes' => $request->notes,
 
-            'payment_type' => 'Espécie',
             'payment_method' => 'Espécie',
             'amount' => $total_amount,
 
