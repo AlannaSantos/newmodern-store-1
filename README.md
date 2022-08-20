@@ -162,6 +162,7 @@ Iniciando o servidor de desenvolvimento Laravel: http://127.0.0.1:8000
 
 
 ## Jetstream 2.8
+[documentação oficial](https://jetstream.laravel.com/2.x/introduction.html)
   
 #### Sobre:
 
