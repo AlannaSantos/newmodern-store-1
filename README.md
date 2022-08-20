@@ -172,7 +172,7 @@ Jetstream é projetado usando Tailwind CSS e oferece sua escolha de andaimes Liv
 
 Repositório e tutorial completo realizo por mim, Lucas.  [repositório multi-auth-jetstream-laravel](https://github.com/lucasbogo/multi-auth-jetstream-laravel)
 
-Segue, no repositório: **multi-auth-jetstream-laravel** um tutorial completo, constando todos os passado que eu realizei para completar os dois primeiros requisitos funcionais deste projeto. Este trabalho foi realizado com bastante pesquisa.
+Segue, no repositório: **multi-auth-jetstream-laravel** um tutorial completo, constando todos os passos que eu realizei para completar os dois primeiros requisitos funcionais deste projeto. Este trabalho foi realizado com bastante pesquisa.
 
 ### Instalação:
 
