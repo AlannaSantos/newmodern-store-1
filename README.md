@@ -122,6 +122,11 @@ Laravel é um framework web PHP de código aberto. É usado principalmente para 
 
 O Laravel é adequado para desenvolvimento de aplicativos em pequena escala e em nível empresarial. Sua sintaxe elegante, recursos avançados e ferramentas robustas ajudam a simplificar o desenvolvimento de aplicativos da web. O Laravel é altamente escalável e possui suporte embutido para sistemas de cache distribuídos.
 
+Neste projeto utilizamos Jetstream com Livewire:
+
+Laravel Livewire
+é uma biblioteca que simplifica a construção de interfaces modernas, reativas e dinâmicas usando o Laravel Blade como sua linguagem de modelagem. Essa é uma ótima pilha para escolher se você deseja criar um aplicativo dinâmico e reativo, mas não se sente confortável em pular para uma estrutura JavaScript completa como Vue.js.
+
 ### Instalação:
 
 #### Instalar o instalador do laravel
