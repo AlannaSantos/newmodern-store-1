@@ -170,7 +170,7 @@ Laravel Jetstream é um kit inicial de aplicativos para Laravel. Jetstream forne
 
 Jetstream é projetado usando Tailwind CSS e oferece sua escolha de andaimes Livewire ou Inertia.[
 
-Repositório e tutorial completo realizo por mim, Lucas. [documentação oficial](https://github.com/lucasbogo/multi-auth-jetstream-laravel)
+Repositório e tutorial completo realizo por mim, Lucas.  [repositório multi-auth-jetstream-laravel](https://github.com/lucasbogo/multi-auth-jetstream-laravel)
 
 Segue, no repositório: **multi-auth-jetstream-laravel** um tutorial completo, constando todos os passado que eu realizei para completar os dois primeiros requisitos funcionais deste projeto. Este trabalho foi realizado com bastante pesquisa.
 
