@@ -47,6 +47,7 @@ class CashController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+        
         // Enviar os dados p/ e-mail do cliente
         // Pegar todos os dados $order_id e atribui-los à variável $data.
         // Requisito funcional 7: a venda deve apresentar preço, total, data, nome e lista itens
@@ -83,7 +84,7 @@ class CashController extends Controller
             ]);
         }
 
-        // Destruir cartão (esvaziar) 
+        // Destruir carrinho após compra finalizada
         Cart::destroy();
 
         $notification = array(
@@ -91,7 +92,7 @@ class CashController extends Controller
             'alert-type' => 'success'
         );
 
-        // Após efetuar compra e retornar p/ a a lista de pedidos user
+        // Após efetuar compra e retornar p/ a a lista de pedidos/envio user
         return redirect()->route('my.orders')->with($notification);
     }
 }
