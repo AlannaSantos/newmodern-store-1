@@ -122,6 +122,11 @@ Laravel é um framework web PHP de código aberto. É usado principalmente para 
 
 O Laravel é adequado para desenvolvimento de aplicativos em pequena escala e em nível empresarial. Sua sintaxe elegante, recursos avançados e ferramentas robustas ajudam a simplificar o desenvolvimento de aplicativos da web. O Laravel é altamente escalável e possui suporte embutido para sistemas de cache distribuídos.
 
+Neste projeto utilizamos Jetstream com Livewire:
+
+Laravel Livewire
+é uma biblioteca que simplifica a construção de interfaces modernas, reativas e dinâmicas usando o Laravel Blade como sua linguagem de modelagem. Essa é uma ótima pilha para escolher se você deseja criar um aplicativo dinâmico e reativo, mas não se sente confortável em pular para uma estrutura JavaScript completa como Vue.js.
+
 ### Instalação:
 
 #### Instalar o instalador do laravel
@@ -157,12 +162,17 @@ Iniciando o servidor de desenvolvimento Laravel: http://127.0.0.1:8000
 
 
 ## Jetstream 2.8
+[documentação oficial](https://jetstream.laravel.com/2.x/introduction.html)
   
 #### Sobre:
 
 Laravel Jetstream é um kit inicial de aplicativos para Laravel. Jetstream fornece a implementação para login, registro, verificação de e-mail, autenticação de dois fatores, gerenciamento de sessão, API via Laravel Sanctum e recursos opcionais de gerenciamento de equipe.
 
-Jetstream é projetado usando Tailwind CSS e oferece sua escolha de andaimes Livewire ou Inertia.
+Jetstream é projetado usando Tailwind CSS e oferece sua escolha de andaimes Livewire ou Inertia.[
+
+Repositório e tutorial completo realizo por mim, Lucas.  [repositório multi-auth-jetstream-laravel](https://github.com/lucasbogo/multi-auth-jetstream-laravel)
+
+Segue, no repositório: **multi-auth-jetstream-laravel** um tutorial completo, constando todos os passos que eu realizei para completar os dois primeiros requisitos funcionais deste projeto. Este trabalho foi realizado com bastante pesquisa.
 
 ### Instalação:
 
@@ -281,6 +291,15 @@ php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServi
 #### Sobre:
 - Seed para Laravel com Estados e Cidades com o código do IBGE
 - 26 Estados e 5.565 Cidades, todos com o código do IBGE
+
+- *seed* newmodern-bd:
+```
+php artisan db:seed --class=ShippingDivisionTableSeeder
+```
+```
+php artisan db:seed --class=ShippingDistrictTableSeeder
+```
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 <p align="center"><img src="public/repository-images/stripe.png" width="400" height="200"></p>
