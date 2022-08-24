@@ -24,7 +24,7 @@ Loja Virtual desenvolvida como trabalho obrigatório para a disciplina de **Proj
 -  **Laravel Shoppingcart - bumbummen99/shoppingcart**
 -  **Laravel PDF -  barryvdh/laravel-dompdf**
 -  **VSCode**
--  **Banco de dados tratado com o *ELOQUENT ORM* ** 
+-  **Banco de dados tratado com o ELOQUENT ORM** 
 -  **Padrão MVC**
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
