@@ -20,7 +20,7 @@ Loja Virtual desenvolvida como trabalho obrigatório para a disciplina de **Proj
 -  **JQuery**
 -  **MySQL 8.0.29**
 -  **Mailtrap.io**
--  **Laravel Image Intervention Package (trabalhar com imagens)**
+-  **Laravel Image Intervention Package**
 -  **Laravel Shoppingcart - bumbummen99/shoppingcart**
 -  **Laravel PDF -  barryvdh/laravel-dompdf**
 -  **VSCode**
