@@ -23,9 +23,8 @@ Loja Virtual desenvolvida como trabalho obrigatório para a disciplina de **Proj
 -  **Laravel Image Intervention Package (trabalhar com imagens)**
 -  **Laravel Shoppingcart - bumbummen99/shoppingcart**
 -  **Laravel PDF -  barryvdh/laravel-dompdf**
--  **Stripe Payment**
 -  **VSCode**
--  **Banco de dados tratado com o padrão Factory** 
+-  **Banco de dados tratado com o *ELOQUENT ORM* ** 
 -  **Padrão MVC**
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -284,6 +283,7 @@ php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServi
 ```
 #### Isso lhe dará um arquivo de configuração cart.php no qual você pode fazer alterações no comportamento dos pacotes.
 
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Estado-Cidade Seeder
 [repositório GitHub](https://github.com/paulodealmeida/Estados-Cidades-Laravel-Seed)
@@ -300,23 +300,6 @@ php artisan db:seed --class=ShippingDivisionTableSeeder
 php artisan db:seed --class=ShippingDistrictTableSeeder
 ```
 
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-<p align="center"><img src="public/repository-images/stripe.png" width="400" height="200"></p>
-
-
-## Stripe Payment
-[documentação oficial](https://stripe.com/docs/development/quickstart/php)
-  
-#### Sobre:
-Stripe é uma companhia tecnológica. Seu software permite a indivíduos e negócios receber pagamentos por internet. Proporciona a infra-estrutura técnica, de prevenção de fraude e bancária necessária para operar sistemas de pagamento em linha.
-
-### Instalação: Instalar o Pacote pelo composer;
-
-#### Execute o comando no diretório do projeto:
-```
-composer require stripe/stripe-php
-```
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
  ## barryvdh/laravel-dompdf
  [repositório oficial](https://github.com/barryvdh/laravel-dompdf)
