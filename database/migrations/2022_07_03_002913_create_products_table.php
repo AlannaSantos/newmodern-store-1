@@ -29,15 +29,9 @@ return new class extends Migration
             $table->string('product_color_pt')->nullable(); 
             $table->string('product_selling_price');
             $table->string('product_discount_price')->nullable(); 
-            $table->string('product_short_description_en')->nullable(); 
             $table->string('product_short_description_pt')->nullable(); 
-            $table->string('product_long_description_en')->nullable(); 
             $table->string('product_long_description_pt')->nullable(); 
             $table->string('product_thumbnail'); 
-            $table->integer('product_hot_deals')->nullable(); //projeto futuro lucas
-            $table->integer('product_featured')->nullable(); //projeto futuro lucas
-            $table->integer('product_special_offer')->nullable();  //projeto futuro lucas
-            $table->integer('product_special_deals')->nullable();  //projeto futuro lucas
             $table->integer('product_status')->default(0); 
             $table->timestamps();
 

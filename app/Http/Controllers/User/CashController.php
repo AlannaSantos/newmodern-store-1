@@ -66,7 +66,20 @@ class CashController extends Controller
             'notes' => $request->notes,
         ];
 
-        // Passar os dados da variável $data p/ a função build() de OrderMail localizado em app/Mail/OrderMail.php
+        /**
+         * ENVIAR DADOS COMPRA VIA E-MAIL UTILIZANDO LARAVEL MAIL
+         * 
+         * TUTORIAL ENCONTRADO EM: https://www.itsolutionstuff.com/post/laravel-9-mail-laravel-9-send-email-tutorialexample.html
+         * 
+         * PORÉM, NÃO FUNCIONA FORA DO AMBIENTE DE TESTE, OU SEJA, NÃO ESTÁ PRONTO E NÃO DEVE SER COBRADO NA APRESENTAÇÃO
+         * 
+         * INCLUSIVE, NEM ESTÁ NA DOCUMENTAÇÃO...
+         * 
+         * LÓGICA:Passar os dados da variável $data p/ a função build() de OrderMail localizado em
+         * app/Mail/OrderMail.php
+         *  
+         * 
+         * */ 
         Mail::to($request->email)->send(new OrderMail($data));
 
         // Pegar todo o conteúdo, isto é, todos os itens do carrinho
